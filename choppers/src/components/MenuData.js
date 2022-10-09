@@ -1,7 +1,9 @@
 import React from 'react';
-import * as FaIcons from "react-icons/fa";
+import { BsPeopleFill } from "react-icons/bs";
+import { RiCustomerService2Fill } from "react-icons/ri";
+import { GrProductHunt } from "react-icons/gr";
+import { BiImages, BiPhoneCall } from "react-icons/bi";
 import * as AiIcons from "react-icons/ai";
-import * as IoIcons from "react-icons/io";
 
 export const MenuData = [
     {
@@ -13,37 +15,37 @@ export const MenuData = [
     {
         title: 'About Us',
         path: '/about',
-        icon: <AiIcons.AiFillHome/>,
+        icon: <BsPeopleFill/>,
         class: 'nav-text'
     },
     {
         title: 'Barbers',
         path: '/barbers',
-        icon: <AiIcons.AiFillHome/>,
+        icon: <AiIcons.AiOutlineScissor/>,
         class: 'nav-text'
     },
     {
         title: 'Services',
         path: '/services',
-        icon: <AiIcons.AiFillHome/>,
+        icon: <RiCustomerService2Fill/>,
         class: 'nav-text'
     },
     {
         title: 'Gallery',
         path: '/gallery',
-        icon: <AiIcons.AiFillHome/>,
+        icon: <BiImages/>,
         class: 'nav-text'
     },
     {
         title: 'Products',
         path: '/products',
-        icon: <AiIcons.AiFillHome/>,
+        icon: <GrProductHunt/>,
         class: 'nav-text'
     },
     {
         title: 'Contact Us',
         path: '/contact',
-        icon: <AiIcons.AiFillHome/>,
+        icon: <BiPhoneCall/>,
         class: 'nav-text'
     },
     

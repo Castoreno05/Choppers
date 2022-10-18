@@ -1,0 +1,40 @@
+.footerContainer {
+    display: flex;
+    flex-direction: column;
+    border-top: solid 1px gray;
+}
+.footerContainer h2 {
+    padding: 10px 10px;
+    margin: 10px auto;
+}
+.footerForm {
+    display: flex;
+    justify-content: center;
+    padding: 10px 10px;
+    margin: 10px 10px;
+}
+input {
+    padding: 10px 5px;
+    width: 300px;
+    border-color: black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.submitEmail {
+    background-color: white;
+    border: none;
+    border-bottom: 2px solid;
+}
+.submitEmail svg {
+    position: relative;
+    top: 5px;
+}
+.submitEmail:hover {
+    cursor: pointer;
+}
+.submitIcon {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+}

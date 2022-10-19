@@ -5,11 +5,12 @@
     align-items: center;
 }
 .choppersLogo {
+    background-color: none;
     position: relative;
-    margin-left: 2rem;
-    top: 40px;
-    width: 150px;
-    height: 150px
+    margin-left: 1.5rem;
+    top: 15px;
+    width: 100px;
+    height: 100px
 }
 .menu-bars {
     margin-left: auto;

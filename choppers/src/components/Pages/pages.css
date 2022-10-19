@@ -1,3 +1,27 @@
-.home, .about, .barbers, .services, .gallery, .products, .contact {
+.home,
+.about,
+.services,
+.gallery,
+.products,
+.contact {
     height: 100vh;
+}
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+h1 {
+    font-size: 32px;
+}
+section p {
+    padding: 10px 10px;
+    font-size: 20px;
+}
+#tank img {
+    border-radius: 25px;
+    box-shadow: 11px 11px 21px 0px rgba(0,0,0,0.83);
+    height: 300px;
+    width: 350px;
 }

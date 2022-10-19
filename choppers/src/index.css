@@ -8,8 +8,11 @@
 }
 .home, .about, .barbers, .contact, .gallery, .products, .services {
   display: flex;
-  height: 90vh;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
+}
+.barbers {
+  margin: 15px 15px;
+  padding: 15px 15px;
 }

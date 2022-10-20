@@ -1,27 +1,75 @@
-.home,
+/* .home,
 .about,
+.barbers,
 .services,
 .gallery,
 .products,
 .contact {
-    height: 100vh;
+  height: 100vh;
+} */
+#leftArrow, #rightArrow {
+  color: #00308F;
+  height: 40px;
+  width: 40px;
+}
+#leftArrow, #rightArrow:hover {
+  cursor: pointer;
+}
+#leftArrow:hover {
+  color: #BA0D16;
+}
+#rightArrow:hover {
+  color: #BA0D16;
+}
+.toggleDiv {
+  display: flex;
+  width: 125px;
+  justify-content: space-around;
 }
 section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  padding: 15px 15px;
+  margin: 15px 15px;
 }
-h1 {
-    font-size: 32px;
+.barbers .container-fluid {
+  padding: 15px 15px;
+  margin: 15px 15px;
+  display: flex;
 }
-section p {
-    padding: 10px 10px;
-    font-size: 20px;
+.tankSection,
+.mattSection,
+.jeremySection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
-#tank img {
-    border-radius: 25px;
-    box-shadow: 11px 11px 21px 0px rgba(0,0,0,0.83);
-    height: 300px;
-    width: 350px;
+.tankSection h1,
+.mattSection h1,
+.jeremySection h1 {
+  padding: 20px 20px;
+  font-size: 32px;
+}
+.tankSection p,
+.mattSection p,
+.jeremySection p {
+  width: 80%;
+  padding: 20px 20px;
+  font-size: 18px;
+}
+.imageOne,
+.imageTwo,
+.imageThree {
+  border-radius: 25px;
+  box-shadow: 11px 11px 21px 0px rgba(0, 0, 0, 0.83);
+  height: 400px;
+  width: 300px;
+}
+
+@media only screen and (max-width: 800px) {
+  .tankSection p,
+  .mattSection p,
+  .jeremySection p {
+    width: 100%;
+    font-size: 14px;
+  }
 }

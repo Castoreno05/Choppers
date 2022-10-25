@@ -69,9 +69,9 @@ input {
 }
 .youtube {
   position: relative;
-  bottom: 6px;
+  bottom: 13px;
   color: red;
-  height: 70px;
+  height: 90px;
   width: 80px;
 }
 .instagram,

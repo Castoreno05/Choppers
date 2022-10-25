@@ -3,8 +3,8 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 // import Row from "react-bootstrap/Row";
 import Tank from "../../Images/RicardoSauceda.jpg";
-import Matt from "../../Images/MattSlattery.jpeg";
-import Germ from "../../Images/Germ.jpg";
+// import Matt from "../../Images/MattSlattery.jpeg";
+// import Germ from "../../Images/Germ.jpg";
 import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
 
 function Barbers() {

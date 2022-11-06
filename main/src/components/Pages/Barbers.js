@@ -12,7 +12,7 @@ function Barbers() {
         {data.map((item) => (
           <>
             <img src={item.img} alt={item.name} />
-            <div className="barberInfo">
+            <div className="barberInfo" id={item.id}>
               <h3>{item.name}</h3>
               <p>{item.intro}</p>
             </div>
@@ -29,11 +29,19 @@ flex-direction: column;
 overflow-x: auto;
 height: 100vh;
 .barbers{
-  margin-left: 3rem;
+  margin-left: 1rem;
   display: flex;
   justify-content: space-around;
   gap: 2rem;
-  width: 280rem;
+  width: 270rem;
+  .barberInfo{
+    padding: 1rem 1rem;
+  }
+  .barberInfo p{
+    font-size: 1.25rem;
+    line-height: 2.25rem;
+    width: 60rem;
+  }
 }
 .barbers img{
   border-radius: 0.8rem;
@@ -46,13 +54,6 @@ h1{
   left: 40%;
   font-size: 4rem;
   padding: 1.5rem 1.5rem;
-}
-.barberInfo{
-  padding: 1rem 1rem;
-}
-.barberInfo p{
-  font-size: 1.25rem;
-  line-height: 2.25rem;
 }
 `;
 

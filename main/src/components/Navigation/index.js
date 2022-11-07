@@ -18,7 +18,7 @@ function Navigation() {
     <IconContext.Provider value={{ color:'#f5f5f5'}}>
     <div className="navigation">
       <Link to="/">
-      <img src={ChoppersLogo} alt="Logo" className='choppersLogo'></img>
+      <h1 className='title'>Choppers</h1>
       </Link>
       <Link to="#" className="menu-bars">
         <FaIcons.FaBars onClick={showMenu} style={{ color: 'black'}}/>

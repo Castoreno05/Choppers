@@ -24,6 +24,7 @@ function Barbers() {
 }
 
 const Employees = styled.div`
+background-color: #585858;
 display: flex;
 flex-direction: column;
 overflow-x: auto;
@@ -34,10 +35,11 @@ height: 100vh;
   justify-content: space-around;
   gap: 2rem;
   width: 270rem;
-  .barberInfo{
-    padding: 1rem 1rem;
+  .barberInfo h3{
+    padding: 2rem;
   }
   .barberInfo p{
+    padding: 2rem;
     font-size: 1.25rem;
     line-height: 2.25rem;
     width: 60rem;
@@ -50,8 +52,7 @@ height: 100vh;
   width: 350px;
 }
 h1{
-  position: relative;
-  left: 40%;
+  text-align: center;
   font-size: 4rem;
   padding: 1.5rem 1.5rem;
 }

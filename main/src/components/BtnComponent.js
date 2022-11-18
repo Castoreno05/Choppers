@@ -1,12 +1,11 @@
 import React from "react";
-import styled from "styled-components";
+
 
 function BtnComponent(props) {
   return (
-  <Button onClick={props.start}>Next Barber</Button>
+  <button onClick={props.next}>Next Barber</button>
   );
 }
 
-const Button = styled.div``;
 
 export default BtnComponent;

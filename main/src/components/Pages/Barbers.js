@@ -1,29 +1,85 @@
 import React, { useState } from "react";
-import { data } from "../EmployeeData";
+import { EmployeeData } from "../EmployeeData";
 import styled from "styled-components";
 
 function Barbers() {
-  const [barberList, updateBarberList] = useState(data);
+  
+  const [data,setData] = useState(EmployeeData);
 
-  console.log(barberList, "barber_data");
+
+  function toggleActive(index) {
+    setData({...data, EmployeeData: data.id[index]})
+    console.log(index)
+  }
 
   return (
     <Employee>
       <div className="barber-wrapper">
-        <div className="barbers">
-          {barberList.map((i) => {
-            return <>{i.img}</>;
-          })}
-        </div>
-        <button>Next Barber</button>
+        {data.map((element, index) => {
+          return (
+            <div
+              key={index}
+              className='box'
+              onClick={() => toggleActive(index)}
+            >{element.name}</div>
+          );
+        })}
       </div>
     </Employee>
   );
 }
 
-const Employee = styled.div``;
+const Employee = styled.div`
+  height: 100vh;
+  background-color: darkblue;
+  padding: 1.5rem;
+  .barber-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 50vh;
+    background-color: green;
+    .box {
+      background-color: grey;
+      border: solid 0.1rem;
+      height: 150px;
+      width: 150px;
+    }
+    .active{
+      background-color: lightgreen;
+      border: solid 0.1rem;
+      height: 150px;
+      width: 150px;
+    }
+    .inactive{
+      display: none;
+    }
+  }
+`;
 
 export default Barbers;
+
+
+// Names are objects carrying the employees data
+  // function printBarber({name}) {
+  //   console.log(`Name is: ${name} I work at choppers`)
+  // }
+  // const [data,setData] = useState(EmployeeData);
+  // console.log(data);
+  // const [active, setActive] = useState({
+  //   activeObject: null,
+  //   objects: [{ id: 1 }, { id: 2 }, { id: 3 }],
+  // });
+
+  // function toggleBarber(index) {
+  //   setActive({ ...active, activeObject: active.objects[index] });
+  // };
+
+  
+
+
+
 
 // const Employees = styled.div`
 // display: flex;
@@ -58,6 +114,11 @@ export default Barbers;
 //   padding: 1.5rem 1.5rem;
 // }
 // `;
+
+
+
+
+
 
 // <Employees>
 //   <div>

@@ -5,7 +5,6 @@ import * as AiIcons from "react-icons/ai";
 import { MenuData } from '../MenuData';
 import "./navigation.css";
 import { IconContext } from "react-icons";
-import ChoppersLogo from "../../Images/ChoppersLogo.png"
 
 function Navigation() {
 

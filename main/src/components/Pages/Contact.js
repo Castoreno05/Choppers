@@ -132,7 +132,6 @@ const Container = styled.div`
       align-items: center;
       background-color: #07252d;
       width: 55%;
-      height: 85vh;
       h1 {
         font-size: 42px;
         padding: 1.5rem;
@@ -245,6 +244,7 @@ const Container = styled.div`
       .contact-info {
         gap: 0;
         width: 100%;
+        height: 60vh;
         form {
           height: 38vh;
         }

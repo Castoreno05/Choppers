@@ -20,7 +20,7 @@ function Navigation() {
       <h1 className='title'>Choppers</h1>
       </Link>
       <Link to="#" className="menu-bars">
-        <FaIcons.FaBars onClick={showMenu} style={{ color: 'black'}}/>
+        <FaIcons.FaBars onClick={showMenu} style={{ color: 'black'}} className="stubborn-icon"/>
       </Link>
     </div>
     <nav className={choppersMenu ? 'chop-menu active' : 'chop-menu'}>

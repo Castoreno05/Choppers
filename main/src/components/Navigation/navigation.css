@@ -21,7 +21,14 @@
 .menu-bars svg{
     cursor: pointer;
 }
-
+.close{
+    font-size: 32px;
+    margin-right: 20px;
+}
+.close:hover{
+    border-radius: 4px;
+    background-color: #00308F;
+}
 .chop-menu {
     background-color: #BA0D16;
     width: 250px;

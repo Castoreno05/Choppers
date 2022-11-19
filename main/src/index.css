@@ -3,6 +3,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  
 }
 .home, .about, .barbers, .contact, .gallery, .products, .services {
   display: flex;

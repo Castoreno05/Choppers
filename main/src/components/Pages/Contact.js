@@ -68,7 +68,7 @@ function Map() {
           </div>
         </section>
         <GoogleMap
-          zoom={17}
+          zoom={15}
           center={center}
           mapContainerClassName="map-container"
         >
@@ -114,7 +114,6 @@ function Map() {
 }
 
 const Container = styled.div`
-  background-color: #c0c0c0;
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -137,7 +136,6 @@ const Container = styled.div`
         padding: 1.5rem;
       }
       .contact-form {
-        // border: solid 1px black;
         display: flex;
         padding: 1.5rem;
         width: 85%;

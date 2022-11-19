@@ -2,7 +2,6 @@ import React from "react";
 import "./footer.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Button from "react-bootstrap/Button";
 import {
   AiOutlineMail,
   AiOutlineInstagram,
@@ -20,9 +19,9 @@ function Footer() {
         <Row>
           <form className="footerForm">
             <input placeholder="Email Here" />
-            <Button variant="none" className="submitEmail">
+            <button id="email" aria-label="email-button">
               <AiOutlineMail className="submitIcon" />
-            </Button>
+            </button>
           </form>
         </Row>
         <Row>

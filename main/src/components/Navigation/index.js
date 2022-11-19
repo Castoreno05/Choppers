@@ -21,8 +21,7 @@ function Navigation() {
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars
               onClick={showMenu}
-              style={{ color: "black" }}
-              className="stubborn-icon"
+              className="thisAmazingIcon"
             />
           </Link>
         </div>

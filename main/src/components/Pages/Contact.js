@@ -125,10 +125,12 @@ const Container = styled.div`
     width: 100%;
     .contact-info {
       display: flex;
+      border-radius: 20px;
       flex-direction: column;
+      color: #fff;
       gap: 1.5rem;
       align-items: center;
-      background-color: #dbe9f4;
+      background-color: #07252d;
       width: 55%;
       height: 85vh;
       h1 {
@@ -138,7 +140,7 @@ const Container = styled.div`
       .contact-form {
         display: flex;
         padding: 1.5rem;
-        width: 85%;
+        width: 95%;
         input {
           width: 100% !important;
           border-radius: 8px;
@@ -214,6 +216,7 @@ const Container = styled.div`
     align-items: center;
     width: 100%;
     height: 25vh;
+    color: #fff;
     text-align: center;
     .icon-div {
       gap: 1rem;
@@ -241,7 +244,6 @@ const Container = styled.div`
       flex-direction: column;
       .contact-info {
         gap: 0;
-        
         width: 100%;
         form {
           height: 38vh;

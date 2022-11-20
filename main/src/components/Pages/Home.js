@@ -1,12 +1,19 @@
-import React from 'react';
-import './pages.css';
+import React from "react";
+import styled from "styled-components";
 
 function Home() {
   return (
-    <div className='home'>
-        <h1>Home</h1>
-    </div>
-  )
+    <Container>
+      <h1>Home</h1>
+    </Container>
+  );
 }
 
-export default Home
+const Container = styled.div`
+  display: flex;
+  height: 100vh;
+  padding: 1.5rem;
+  justify-content: center;
+`;
+
+export default Home;

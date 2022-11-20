@@ -130,7 +130,7 @@ const Container = styled.div`
       color: #fff;
       gap: 1.5rem;
       align-items: center;
-      background-color: #07252d;
+      background-color: black;
       width: 55%;
       h1 {
         font-size: 42px;
@@ -222,7 +222,7 @@ const Container = styled.div`
       display: flex;
       justify-content: center;
       margin: auto;
-      background-color: #00308f;
+      background-color: black;
       height: 50px;
       width: 50px;
       align-items: center;

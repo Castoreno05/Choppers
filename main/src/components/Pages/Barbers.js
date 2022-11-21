@@ -17,8 +17,8 @@ function Barbers() {
       <div className="barber-navigation">
         {data.map((element, index) => {
           return (
-            <div className={`barber-${element.name}`}>
-              <h1>{element.name}</h1>
+            <div className="">
+              <button>{element.name}</button>
             </div>
           );
         })}

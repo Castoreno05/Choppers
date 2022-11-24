@@ -67,48 +67,36 @@ function Map() {
             </form>
           </div>
         </section>
-        <GoogleMap
-          zoom={15}
-          center={center}
-          mapContainerClassName="map-container"
-        >
-          <MarkerF position={{ lat: 29.68921, lng: -95.21955 }} />
-        </GoogleMap>
+        <section className="location-hours">
+          <GoogleMap
+            zoom={15}
+            center={center}
+            mapContainerClassName="map-container"
+          >
+            <MarkerF position={{ lat: 29.68921, lng: -95.21955 }} />
+          </GoogleMap>
+          <div className="contact-us">
+            <section>
+              <FaIcons.FaMapMarkerAlt />
+              <p>
+                <strong>Address</strong>: 1501 S Richey St, Pasadena, TX 77502
+              </p>
+            </section>
+            <section>
+              <FaIcons.FaPhoneAlt />
+              <p>
+                <strong>Phone</strong>: (713) 898-1217
+              </p>
+            </section>
+            <section>
+              <FaIcons.FaPaperPlane />
+              <p>
+                <strong>Email</strong>: choppers@gmail.com
+              </p>
+            </section>
+          </div>
+        </section>
       </div>
-      <section className="second-container">
-        <div>
-          <div className="icon-div">
-            <FaIcons.FaMapMarkerAlt />
-          </div>
-          <p>
-            <strong>Address</strong>: 1501 S Richey St, Pasadena, TX 77502
-          </p>
-        </div>
-        <div>
-          <div className="icon-div">
-            <FaIcons.FaPhoneAlt />
-          </div>
-          <p>
-            <strong>Phone</strong>: (713) 898-1217
-          </p>
-        </div>
-        <div>
-          <div className="icon-div">
-            <FaIcons.FaPaperPlane />
-          </div>
-          <p>
-            <strong>Email</strong>: choppers@gmail.com
-          </p>
-        </div>
-        <div>
-          <div className="icon-div">
-            <FaIcons.FaGlobeAmericas />
-          </div>
-          <p>
-            <strong>Website</strong>: www.choppers-barbershop.com
-          </p>
-        </div>
-      </section>
     </Container>
   );
 }
@@ -116,7 +104,7 @@ function Map() {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 0.8rem;
   justify-content: space-around;
   gap: 1rem;
   .first-container {
@@ -125,7 +113,7 @@ const Container = styled.div`
     width: 100%;
     .contact-info {
       display: flex;
-      border-radius: 20px;
+      border-radius: 10px;
       flex-direction: column;
       color: #fff;
       gap: 1.5rem;
@@ -203,38 +191,28 @@ const Container = styled.div`
         }
       }
     }
-    .map-container {
-      border-radius: 20px;
+    .location-hours{
       width: 40%;
-      height: 85vh;
-    }
-  }
-  .second-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 25vh;
-    color: #fff;
-    text-align: center;
-    .icon-div {
-      gap: 1rem;
-      display: flex;
-      justify-content: center;
-      margin: auto;
-      background-color: black;
-      height: 50px;
-      width: 50px;
-      align-items: center;
-      border-radius: 15px;
-      svg {
-        height: 22px;
-        width: 22px;
-        color: white;
+      .map-container {
+        height: 50vh;
+        border-radius: 10px;
+        width: 100%;
       }
-    }
-    p {
-      margin-top: 1rem;
+      .contact-us{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 33.5vh;
+        width: 100%;
+        section{
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
   }
   @media screen and (max-width: 780px) {

@@ -3,7 +3,7 @@ import Booking from "./Booking";
 import styled from "styled-components";
 
 export default function Card({ name, image, intro }) {
-  const [popup,setPopup] = useState(false);
+  const [popup, setPopup] = useState(false);
 
   return (
     <Container>
@@ -17,8 +17,7 @@ export default function Card({ name, image, intro }) {
           <p>{intro}</p>
         </div>
       </div>
-      <Booking trigger={popup} setPopup={setPopup}>
-      </Booking>
+      <Booking trigger={popup} setPopup={setPopup}></Booking>
     </Container>
   );
 }
@@ -28,7 +27,6 @@ const Container = styled.div`
   flex-direction: column;
   width: 50%;
   .barber-Tank {
-    background-color: #f5deb3;
     display: flex;
     justify-content: center;
     height: 50vh;

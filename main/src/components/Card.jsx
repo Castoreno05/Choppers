@@ -5,8 +5,10 @@ export default function Card({ name, image, intro }) {
     return (
         <Container>
             <div className={`barber-${name}`}>
-                {image}
-                <button>Book Now</button>
+                <div className='barber-info'>
+                    {image}
+                    <button>Book Now</button>
+                </div>
                 <div className='barber-booking'>
                     <h1>{name}</h1>
                     <p>{intro}</p>
@@ -23,14 +25,20 @@ background-color: #f5deb3;
     display: flex;
     justify-content: center;
     height: 50vh;
-    img{
-        padding: 1rem;
-        height: 250px;
-        width: 275px;
+    .barber-info{
+        img{
+            padding: 1rem;
+            height: 260px;
+            width: 210px;
+            border-radius: 20px;
+        }
+        button{
+            margin-left: 1rem;
+        }
     }
     .barber-booking{
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         flex-direction: column;
         background-color: whitesmoke;
         button{
@@ -50,15 +58,21 @@ background-color: #f5deb3;
     display: flex;
     justify-content: center;
     height: 50vh;
-    img{
-        padding: 1rem;
-        height: 250px;
-        width: 250px;
+    .barber-info{
+        img{
+            padding: 1rem;
+            height: 270px;
+            width: 240px;
+            border-radius: 20px;
+        }
+        button{
+            margin-left: 1rem;
+        }
     }
     .barber-booking{
         background-color: whitesmoke;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         flex-direction: column;
         button{
             cursor: pointer;
@@ -77,14 +91,20 @@ background-color: #f5deb3;
     display: flex;
     justify-content: center;
     height: 50vh;
-    img{
-        padding: 1rem;
-        height: 250px;
-        width: 250px;
+    .barber-info{
+        img{
+            padding: 1rem;
+            height: 260px;
+            width: 250px;
+            border-radius: 20px;
+        }
+        button{
+            margin-left: 1rem;
+        }
     }
     .barber-booking{
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         flex-direction: column;
         background-color: whitesmoke;
         button{

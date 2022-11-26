@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Matthew, Tank, Germ } from "../EmployeeData";
 import Card from "../Card";
+import Booking from "../Booking";
 import styled from "styled-components";
 
 function Barbers() {
-  const data = {Matthew, Tank, Germ};
+  const data = { Matthew, Tank, Germ };
   console.log(data);
   const [active, setActive] = useState("barber-Tank");
 
@@ -12,18 +13,18 @@ function Barbers() {
     <Employee>
       <h1>Barberz</h1>
       <div className="barber-navigation">
-          <button onClick={() => setActive("barber-Tank")}>Tank</button>
-          <div className="spacer">|</div>
-          <button onClick={() => setActive("barber-Matthew")}>Matthew</button>
-          <div className="spacer">|</div>
-          <button onClick={() => setActive("barber-Germ")}>Germ</button>
+        <button onClick={() => setActive("barber-Tank")}>Tank</button>
+        <div className="spacer">|</div>
+        <button onClick={() => setActive("barber-Matthew")}>Matthew</button>
+        <div className="spacer">|</div>
+        <button onClick={() => setActive("barber-Germ")}>Germ</button>
       </div>
-      {data && 
+      {data &&
 
         <div className="barber-wrapper">
-          {active === "barber-Tank" && <Card name={Tank.name} image={Tank.img} intro={Tank.intro}/>}
-          {active === "barber-Matthew" && <Card name={Matthew.name} image={Matthew.img} intro={Matthew.intro}/>}
-          {active === "barber-Germ" && <Card name={Germ.name} image={Germ.img} intro={Germ.intro}/>}
+          {active === "barber-Tank" && <Card name={Tank.name} image={Tank.img} intro={Tank.intro} />}
+          {active === "barber-Matthew" && <Card name={Matthew.name} image={Matthew.img} intro={Matthew.intro} />}
+          {active === "barber-Germ" && <Card name={Germ.name} image={Germ.img} intro={Germ.intro} />}
         </div>
       }
     </Employee>

@@ -1,103 +1,133 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useState } from "react";
+import Booking from "./Booking";
+import styled from "styled-components";
 
 export default function Card({ name, image, intro }) {
-    return (
-        <Container>
-            <div className={`barber-${name}`}>
-                {image}
-                <button>Book Now</button>
-                <div className='barber-booking'>
-                    <h1>{name}</h1>
-                    <p>{intro}</p>
-                </div>
-            </div>
-        </Container>
-    )
+  const [popup,setPopup] = useState(false);
+
+  return (
+    <Container>
+      <div className={`barber-${name}`}>
+        <div className="barber-info">
+          {image}
+          <button onClick={() => setPopup(true)}>Book Now</button>
+        </div>
+        <div className="barber-booking">
+          <h1>{name}</h1>
+          <p>{intro}</p>
+        </div>
+      </div>
+      <Booking trigger={popup} setPopup={setPopup}>
+      </Booking>
+    </Container>
+  );
 }
 
 const Container = styled.div`
-width: 80%;
-background-color: #f5deb3;
-.barber-Tank {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  .barber-Tank {
+    background-color: #f5deb3;
     display: flex;
     justify-content: center;
     height: 50vh;
-    img{
+    .barber-info {
+      img {
         padding: 1rem;
-        height: 250px;
-        width: 275px;
+        height: 260px;
+        width: 210px;
+        border-radius: 20px;
+      }
+      button {
+        margin-left: 1rem;
+      }
     }
-    .barber-booking{
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-        background-color: whitesmoke;
-        button{
-            cursor: pointer;
-            width: 100px;
-            border: none;
-            border-radius: 20px;
-            padding: 0.3rem;
-            margin: 10px 15px;
-        }
-        p{
-            padding: 1rem;
-        }
+    .barber-booking {
+      display: flex;
+      justify-content: flext-start;
+      flex-direction: column;
+      background-color: whitesmoke;
+      align-items: flex-start;
+      button {
+        cursor: pointer;
+        width: 100px;
+        border: none;
+        border-radius: 20px;
+        padding: 0.3rem;
+        margin: 10px 15px;
+      }
+      p {
+        padding: 1rem;
+      }
     }
-}
-.barber-Matthew{
+  }
+  .barber-Matthew {
     display: flex;
     justify-content: center;
     height: 50vh;
-    img{
+    .barber-info {
+      img {
         padding: 1rem;
-        height: 250px;
+        height: 270px;
+        width: 240px;
+        border-radius: 20px;
+      }
+      button {
+        margin-left: 1rem;
+      }
+    }
+    .barber-booking {
+      background-color: whitesmoke;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
+      button {
+        cursor: pointer;
+        width: 100px;
+        border: none;
+        border-radius: 20px;
+        padding: 0.3rem;
+        margin: 10px 15px;
+      }
+      p {
+        padding: 1rem;
+      }
+    }
+  }
+  .barber-Germ {
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+    .barber-info {
+      img {
+        padding: 1rem;
+        height: 260px;
         width: 250px;
+        border-radius: 20px;
+      }
+      button {
+        margin-left: 1rem;
+      }
     }
-    .barber-booking{
-        background-color: whitesmoke;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-        button{
-            cursor: pointer;
-            width: 100px;
-            border: none;
-            border-radius: 20px;
-            padding: 0.3rem;
-            margin: 10px 15px;
-        }
-        p{
-            padding: 1rem;
-        }
-    }
-}
-.barber-Germ{
-    display: flex;
-    justify-content: center;
-    height: 50vh;
-    img{
+    .barber-booking {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
+      background-color: whitesmoke;
+      button {
+        cursor: pointer;
+        width: 100px;
+        border: none;
+        border-radius: 20px;
+        padding: 0.3rem;
+        margin: 10px 15px;
+      }
+      p {
         padding: 1rem;
-        height: 250px;
-        width: 250px;
+      }
     }
-    .barber-booking{
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-        background-color: whitesmoke;
-        button{
-            cursor: pointer;
-            width: 100px;
-            border: none;
-            border-radius: 20px;
-            padding: 0.3rem;
-            margin: 10px 15px;
-        }
-        p{
-            padding: 1rem;
-        }
-    }
-}    
+  }
 `;

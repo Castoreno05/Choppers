@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 function Barbers() {
   const data = { Matthew, Tank, Germ };
-  console.log(data);
+
   const [active, setActive] = useState("barber-Tank");
 
   return (

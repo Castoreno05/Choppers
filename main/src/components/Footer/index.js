@@ -29,23 +29,50 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="right-container">
+      <div className="middle-container">
         <div className="services">
           <h2>Services</h2>
-          <p>Tapers</p>
-          <p>Scissor Cuts</p>
-          <p>Low Fades</p>
-          <p>Mid Fades</p>
-          <p>Bald Fades</p>
-          <p>Edge Ups</p>
-          <p>Mohawks</p>
-          <p>Designs</p>
-          <p>Beard Trims</p>
-          <p>Flat Tops</p>
-          <p>Regular Men's Hair Cuts</p>
+          <div className="group-wrapper">
+            <div className="group-one">
+              <p>Tapers</p>
+              <p>Scissor Cuts</p>
+              <p>Low Fades</p>
+              <p>Mid Fades</p>
+              <p>Bald Fades</p>
+            </div>
+            <div className="group-two">
+              <p>Edge Ups</p>
+              <p>Mohawks</p>
+              <p>Designs</p>
+              <p>Beard Trims</p>
+              <p>Flat Tops</p>
+            </div>
+          </div>
         </div>
+      </div>
+      <div className="right-container">
         <div className="operation-hours">
           <h2>Business Hours</h2>
+          <div className="group-wrapper">
+            <div className="group-one">
+              <p>Sunday</p>
+              <p>Monday</p>
+              <p>Tuesday</p>
+              <p>Wednesday</p>
+              <p>Thursday</p>
+              <p>Friday</p>
+              <p>Saturday</p>
+            </div>
+            <div className="group-two">
+              <p>Closed</p>
+              <p>Closed</p>
+              <p>10AM - 6PM</p>
+              <p>10AM - 6PM</p>
+              <p>10AM - 6PM</p>
+              <p>10AM - 6PM</p>
+              <p>10AM - 6PM</p>
+            </div>
+          </div>
         </div>
       </div>
     </Container>
@@ -53,14 +80,19 @@ function Footer() {
 }
 
 const Container = styled.div`
+  color: whitesmoke;
+  text-shadow: 0 0 10px #ba0d16, 0 0 20px #ba0d16, 0 0 40px #ba0d16,
+    0 0 80px #ba0d16, 0 0 160px #ba0d16;
+  background-color: black;
   display: grid;
   height: 30vh;
   padding: 1.5rem;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 33% 33% 33%;
   .left-container {
     display: grid;
     grid-template-rows: 50% 50%;
-    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
     .office,
     .follow-us {
       h2,
@@ -69,22 +101,51 @@ const Container = styled.div`
         padding: 0.5rem;
       }
       svg {
-        color: #bfbfbf;
+        color: #fff;
         height: 35px;
         width: 35px;
       }
     }
   }
+  .middle-container {
+    display: grid;
+    justify-content: center;
+    .services {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      p{
+        cursor: pointer;
+      }
+      h2 {
+        padding: 0.3rem;
+        text-align: center;
+      }
+      .group-wrapper {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        align-items: center;
+        gap: 2rem;
+        line-height: 2;
+      }
+    }
+  }
   .right-container {
     display: grid;
-    grid-template-columns: 50% 50%;
-    .services,
+    justify-content: center;
     .operation-hours {
-      border: solid 0.1rem black;
-      h2,
-      .services,
-      .operation-hours {
-        padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      h2 {
+        text-align: center;
+        padding: 0.35rem;
+      }
+      .group-wrapper {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        line-height: 1.5;
+        gap: 2rem;
       }
     }
   }

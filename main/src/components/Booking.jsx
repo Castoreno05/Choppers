@@ -8,15 +8,20 @@ export default function Booking(props) {
 
   const onChange = (date) => {
     setValue(date);
+    console.log(date);
   };
 
   return props.trigger ? (
     <Container>
-      <div className="calendar-wrapper">
-        <Calendar onChange={onChange} value={date} />
-        <div className="closer">
-          <button onClick={() => props.setPopup(false)}>X</button>
+      <div className="booking-container">
+        <div className="booking-info"></div>
+        <div className="calendar-wrapper">
+          <Calendar onChange={onChange} value={date} />
+          <div className="closer">
+            <button onClick={() => props.setPopup(false)}>X</button>
+          </div>
         </div>
+        <div className="time-slots"></div>
       </div>
     </Container>
   ) : (
@@ -33,14 +38,23 @@ const Container = styled.div`
   height: 100vh;
   justify-content: center;
   align-items: center;
-  .calendar-wrapper {
-    height: 33vh;
-    width: 35vw;
-    display: flex;
-    justify-content: center;
-    .react-calendar {
-      border: dotted 0.1rem black;
-      width: auto;
+  background-color: rgba(0, 0, 0, 0.65);
+  .booking-container {
+    display: grid;
+    grid-template-columns: 32% 36% 32%;
+    width: 100%;
+    align-items: center;
+    background-color: black;
+    .calendar-wrapper {
+      padding: 1.5rem;
+      height: 40vh;
+      width: 35vw;
+      display: flex;
+      justify-content: center;
+      .react-calendar {
+        border-radius: 5px;
+        width: auto;
+      }
     }
   }
 `;

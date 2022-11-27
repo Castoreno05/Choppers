@@ -114,7 +114,7 @@ const Container = styled.div`
       display: flex;
       flex-direction: column;
       gap: 0.8rem;
-      p{
+      p {
         cursor: pointer;
       }
       h2 {
@@ -145,7 +145,7 @@ const Container = styled.div`
         display: grid;
         grid-template-columns: 40% 60%;
         line-height: 1.5;
-        gap: 2rem;
+        gap: 3rem;
       }
     }
   }

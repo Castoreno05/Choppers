@@ -1,24 +1,26 @@
 import React from "react";
 import { Matthew, Tank, Germ, Jimmy } from "../EmployeeData";
-import Professionals from "../Professionals";
+import Professional from "../Professional";
 import styled from "styled-components";
 
 function Appointments() {
-  const data = { Matthew, Tank, Germ, Jimmy};
+  const data = { Matthew, Tank, Germ, Jimmy };
+
+  console.log(data);
 
   return (
     <Container>
       <h1>Choose a professional</h1>
       <div className="appointment-wrapper">
         <div className="professionals">
-          <Professionals name={Tank.name} img={Tank.img}/>
-          <Professionals name={Tank.name} img={Tank.img}/>
-          <Professionals name={Germ.name} img={Germ.img}/>
-          <Professionals name={Tank.name} img={Tank.img}/>
-          <Professionals name={Matthew.name} img={Matthew.img}/>
-          <Professionals name={Matthew.name} img={Matthew.img}/>
-          <Professionals name={Germ.name} img={Germ.img}/>
-          <Professionals name={Germ.name} img={Germ.img}/>
+          <Professional name={Tank.name} img={Tank.img} />
+          <Professional name={Tank.name} img={Tank.img} />
+          <Professional name={Germ.name} img={Germ.img} />
+          <Professional name={Tank.name} img={Tank.img} />
+          <Professional name={Matthew.name} img={Matthew.img} />
+          <Professional name={Matthew.name} img={Matthew.img} />
+          <Professional name={Germ.name} img={Germ.img} />
+          <Professional name={Germ.name} img={Germ.img} />
         </div>
         <div className="items-selected"></div>
       </div>
@@ -32,7 +34,7 @@ const Container = styled.div`
   flex-direction: column;
   height: 100vh;
   padding: 1.5rem;
-  h1{
+  h1 {
     padding: 1rem;
   }
   .appointment-wrapper {

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Professionals({ name, img }) {
+export default function Professional({ name, img }) {
   return (
     <Container>
       <div className="e-card">

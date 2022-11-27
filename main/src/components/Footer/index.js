@@ -114,9 +114,6 @@ const Container = styled.div`
       display: flex;
       flex-direction: column;
       gap: 0.8rem;
-      p {
-        cursor: pointer;
-      }
       h2 {
         padding: 0.3rem;
         text-align: center;

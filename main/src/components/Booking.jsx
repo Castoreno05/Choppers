@@ -35,7 +35,7 @@ const Container = styled.div`
   align-items: center;
   .calendar-wrapper {
     height: 33vh;
-    width: 50vw;
+    width: 35vw;
     display: flex;
     justify-content: center;
     .react-calendar {

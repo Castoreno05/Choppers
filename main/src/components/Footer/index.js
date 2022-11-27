@@ -1,73 +1,93 @@
 import React from "react";
-import "./footer.css";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 import {
-  AiOutlineMail,
-  AiOutlineInstagram,
+  AiOutlineYoutube,
+  AiOutlineTwitter,
   AiFillFacebook,
-  AiFillYoutube,
+  AiFillInstagram,
 } from "react-icons/ai";
-import { FaApplePay, FaCcAmex } from "react-icons/fa";
-import { SiZelle, SiVenmo, SiVisa } from "react-icons/si";
+import styled from "styled-components";
 
 function Footer() {
   return (
-    <div className="footer">
-      <Container fluid className="footerContainer">
-        <h2>Join Us For Updates</h2>
-        <Row>
-          <form className="footerForm">
-            <input placeholder="Email Here" />
-            <button id="email" aria-label="email-button">
-              <AiOutlineMail className="submitIcon" />
-            </button>
-          </form>
-        </Row>
-        <Row>
-          <div className="footerIcons">
-            <AiOutlineInstagram className="instagram" />
-            <AiFillYoutube className="youtube" />
+    <Container>
+      <div className="left-container">
+        <div className="office">
+          <h2>Choppers</h2>
+          <div className="address">
+            <h3>Address</h3>
+            <p>1501 South Richey St</p>
+            <p>Pasadena Tx, 77502</p>
+          </div>
+        </div>
+        <div className="follow-us">
+          <h2>Follow Us</h2>
+          <div className="socials">
+            <AiOutlineYoutube className="youtube" />
+            <AiOutlineTwitter className="twitter" />
             <AiFillFacebook className="facebook" />
+            <AiFillInstagram className="instagram" />
           </div>
-        </Row>
-        <Row>
-          <div className="footerNav">
-            <p>Search</p>
-            <p>Refund Policy</p>
-            <p>Shipping Policy</p>
-            <p>Terms of Service</p>
-          </div>
-        </Row>
-        <Row>
-          <ul className="footerPayment">
-            <li>
-              <FaApplePay className="payment applepay" />
-            </li>
-            <li>
-              <SiVisa className="payment visa" />
-            </li>
-            <li>
-              <FaCcAmex className="payment amex" />
-            </li>
-            <li>
-              <SiZelle className="payment zelle" />
-            </li>
-            <li>
-              <SiVenmo className="payment venmo" />
-            </li>
-          </ul>
-        </Row>
-        <Row>
-          <div className="footerRights">
-            <p>
-              © 2022 Choppers<span>Created by Matthew Castoreno</span>
-            </p>
-          </div>
-        </Row>
-      </Container>
-    </div>
+        </div>
+      </div>
+      <div className="right-container">
+        <div className="services">
+          <h2>Services</h2>
+          <p>Tapers</p>
+          <p>Scissor Cuts</p>
+          <p>Low Fades</p>
+          <p>Mid Fades</p>
+          <p>Bald Fades</p>
+          <p>Edge Ups</p>
+          <p>Mohawks</p>
+          <p>Designs</p>
+          <p>Beard Trims</p>
+          <p>Flat Tops</p>
+          <p>Regular Men's Hair Cuts</p>
+        </div>
+        <div className="operation-hours">
+          <h2>Business Hours</h2>
+        </div>
+      </div>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  display: grid;
+  height: 30vh;
+  padding: 1.5rem;
+  grid-template-columns: 30% 70%;
+  .left-container {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    gap: 0.5rem;
+    .office,
+    .follow-us {
+      h2,
+      .address,
+      .socials {
+        padding: 0.5rem;
+      }
+      svg {
+        color: #bfbfbf;
+        height: 35px;
+        width: 35px;
+      }
+    }
+  }
+  .right-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    .services,
+    .operation-hours {
+      border: solid 0.1rem black;
+      h2,
+      .services,
+      .operation-hours {
+        padding: 0.5rem;
+      }
+    }
+  }
+`;
 
 export default Footer;

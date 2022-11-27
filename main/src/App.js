@@ -7,7 +7,7 @@ import Barbers from "./components/Pages/Barbers";
 import Contact from "./components/Pages/Contact";
 import Gallery from "./components/Pages/Gallery";
 import Products from "./components/Pages/Products";
-import Services from "./components/Pages/Services";
+import Appointments from "./components/Pages/Appointments";
 import Footer from "./components/Footer";
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/services" element={<Services />} />
+          <Route path="/appointments" element={<Appointments />} />
         </Routes>
       </Router>
       <Footer />

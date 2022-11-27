@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-function Services() {
+function Appointments() {
   return (
     <Container>
-      <h1>Services</h1>
+      <h1>Appointments</h1>
     </Container>
   );
 }
@@ -16,4 +16,4 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-export default Services;
+export default Appointments;

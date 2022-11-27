@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import Booking from "./Booking";
+import React from "react";
+// import Booking from "./Booking";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export default function Card({ name, image, intro }) {
-  const [popup, setPopup] = useState(false);
+  // const [popup, setPopup] = useState(false);
 
   return (
     <Container>
@@ -11,14 +12,19 @@ export default function Card({ name, image, intro }) {
         <div className="barber-info">{image}</div>
         <div className="barber-booking">
           <h1>{name}</h1>
-          <button onClick={() => setPopup(true)}>Book Now</button>
+          <Link to="/appointments">
+            <button>Book Now With {name}</button>
+          </Link>
           <p>{intro}</p>
         </div>
       </div>
-      <Booking trigger={popup} setPopup={setPopup}></Booking>
+      {/* <Booking trigger={popup} setPopup={setPopup}></Booking> */}
     </Container>
   );
 }
+
+// Add popup to render on services page.
+// onClick={() => setPopup(true)}
 
 const Container = styled.div`
   display: flex;
@@ -39,7 +45,7 @@ const Container = styled.div`
       img {
         padding: 1rem;
         height: 270px;
-        width: 220px;
+        width: 210px;
         border-radius: 20px;
       }
     }
@@ -52,7 +58,7 @@ const Container = styled.div`
         cursor: pointer;
         width: 100px;
         border: none;
-        border-radius: 20px;
+        border-radius: 5px;
         padding: 0.3rem;
         margin: 10px 15px;
       }

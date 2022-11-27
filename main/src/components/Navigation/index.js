@@ -19,10 +19,7 @@ function Navigation() {
             <h1 className="title">Choppers</h1>
           </Link>
           <Link to="#" className="menu-bars">
-            <FaIcons.FaBars
-              onClick={showMenu}
-              className="thisAmazingIcon"
-            />
+            <FaIcons.FaBars onClick={showMenu} className="thisAmazingIcon" />
           </Link>
         </div>
         <nav className={choppersMenu ? "chop-menu active" : "chop-menu"}>

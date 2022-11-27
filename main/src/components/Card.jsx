@@ -8,12 +8,10 @@ export default function Card({ name, image, intro }) {
   return (
     <Container>
       <div className={`barber-${name}`}>
-        <div className="barber-info">
-          {image}
-          <button onClick={() => setPopup(true)}>Book Now</button>
-        </div>
+        <div className="barber-info">{image}</div>
         <div className="barber-booking">
           <h1>{name}</h1>
+          <button onClick={() => setPopup(true)}>Book Now</button>
           <p>{intro}</p>
         </div>
       </div>
@@ -26,27 +24,30 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 50%;
-  .barber-Tank {
+  border: dotted 0.1rem black;
+  .barber-Tank,
+  .barber-Matthew,
+  .barber-Germ {
     display: flex;
     justify-content: center;
-    height: 50vh;
+    flex-direction: column;
     .barber-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       img {
         padding: 1rem;
-        height: 260px;
-        width: 210px;
+        height: 270px;
+        width: 220px;
         border-radius: 20px;
-      }
-      button {
-        margin-left: 1rem;
       }
     }
     .barber-booking {
       display: flex;
-      justify-content: flext-start;
+      justify-content: center;
       flex-direction: column;
-      background-color: whitesmoke;
-      align-items: flex-start;
+      align-items: center;
       button {
         cursor: pointer;
         width: 100px;
@@ -56,75 +57,24 @@ const Container = styled.div`
         margin: 10px 15px;
       }
       p {
+        line-height: 2;
         padding: 1rem;
       }
     }
   }
   .barber-Matthew {
-    display: flex;
-    justify-content: center;
-    height: 50vh;
     .barber-info {
       img {
-        padding: 1rem;
-        height: 270px;
-        width: 240px;
-        border-radius: 20px;
-      }
-      button {
-        margin-left: 1rem;
-      }
-    }
-    .barber-booking {
-      background-color: whitesmoke;
-      display: flex;
-      justify-content: flex-start;
-      flex-direction: column;
-      align-items: flex-start;
-      button {
-        cursor: pointer;
-        width: 100px;
-        border: none;
-        border-radius: 20px;
-        padding: 0.3rem;
-        margin: 10px 15px;
-      }
-      p {
-        padding: 1rem;
+        height: 280px !important;
+        width: 250px !important;
       }
     }
   }
   .barber-Germ {
-    display: flex;
-    justify-content: center;
-    height: 50vh;
     .barber-info {
       img {
-        padding: 1rem;
-        height: 260px;
-        width: 250px;
-        border-radius: 20px;
-      }
-      button {
-        margin-left: 1rem;
-      }
-    }
-    .barber-booking {
-      display: flex;
-      justify-content: flex-start;
-      flex-direction: column;
-      align-items: flex-start;
-      background-color: whitesmoke;
-      button {
-        cursor: pointer;
-        width: 100px;
-        border: none;
-        border-radius: 20px;
-        padding: 0.3rem;
-        margin: 10px 15px;
-      }
-      p {
-        padding: 1rem;
+        height: 260px !important;
+        width: 250px !important;
       }
     }
   }

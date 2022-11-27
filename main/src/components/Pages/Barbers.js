@@ -41,11 +41,8 @@ function Barbers() {
 
 const Employee = styled.div`
   display: flex;
-  gap: 1rem;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  // height: 100vh;
   padding: 1.5rem;
   h1 {
     padding: 1rem;
@@ -84,15 +81,6 @@ const Employee = styled.div`
       border: solid 0.1rem;
       height: 150px;
       width: 150px;
-    }
-    .active {
-      background-color: lightgreen;
-      border: solid 0.1rem;
-      height: 150px;
-      width: 150px;
-    }
-    .inactive {
-      display: none;
     }
   }
 `;

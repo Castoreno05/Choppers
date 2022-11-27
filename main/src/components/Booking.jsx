@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
-import 'react-calendar/dist/Calendar.css';
+import "react-calendar/dist/Calendar.css";
 import styled from "styled-components";
 
 export default function Booking(props) {
@@ -12,11 +12,11 @@ export default function Booking(props) {
 
   return props.trigger ? (
     <Container>
-      <div className="closer">
-        <button onClick={() => props.setPopup(false)}>X</button>
-      </div>
       <div className="calendar-wrapper">
         <Calendar onChange={onChange} value={date} />
+        <div className="closer">
+          <button onClick={() => props.setPopup(false)}>X</button>
+        </div>
       </div>
     </Container>
   ) : (
@@ -26,11 +26,21 @@ export default function Booking(props) {
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  border: dotted 0.1rem black;
-  height: 50vh;
-  .closer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  .calendar-wrapper {
+    height: 33vh;
+    width: 50vw;
     display: flex;
-    justify-content: end;
+    justify-content: center;
+    .react-calendar {
+      border: dotted 0.1rem black;
+      width: auto;
+    }
   }
 `;

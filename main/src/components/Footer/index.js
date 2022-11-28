@@ -146,6 +146,17 @@ const Container = styled.div`
       }
     }
   }
+  @media screen and (max-width: 776px) {
+    height: auto;
+    grid-template-columns: 50% 50%;
+    .middle-container{
+      display: none;
+    }
+  }
+  @media screen and (max-width: 558px) {
+    height: auto;
+    grid-template-columns: 100%;
+  }
 `;
 
 export default Footer;

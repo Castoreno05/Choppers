@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
+import { FaBars } from "react-icons/fa";
+import { AiOutlineClose } from "react-icons/ai";
 import { MenuData } from "../MenuData";
 import "./navigation.css";
 import { IconContext } from "react-icons";
@@ -19,14 +19,14 @@ function Navigation() {
             <h1 className="title">Choppers</h1>
           </Link>
           <Link to="#" className="menu-bars">
-            <FaIcons.FaBars onClick={showMenu} className="thisAmazingIcon" />
+            <FaBars onClick={showMenu} className="thisAmazingIcon" />
           </Link>
         </div>
         <nav className={choppersMenu ? "chop-menu active" : "chop-menu"}>
           <ul className="chop-menu-items" onClick={showMenu}>
             <li className="navbar-toggle">
               <Link to="#" className="menu-bars">
-                <AiIcons.AiOutlineClose className="close" />
+                <AiOutlineClose className="close" />
               </Link>
             </li>
             {MenuData.map((item, index) => {

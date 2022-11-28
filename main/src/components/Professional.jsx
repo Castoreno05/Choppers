@@ -19,10 +19,12 @@ const Container = styled.div`
   text-align: center;
   padding: 1rem;
   .e-card {
-    border: dotted 0.1rem black;
+    box-shadow: 0 0 10px;
+    border-radius: 5px;
     .portrait {
       height: 205px;
       width: 166px;
+      padding: 1rem;
       img {
         border-radius: 5px;
         max-width: 100%;

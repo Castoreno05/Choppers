@@ -4,13 +4,13 @@ import { RiCustomerService2Fill } from "react-icons/ri";
 // import { GrProductHunt } from "react-icons/gr";
 import { BiPhoneCall } from "react-icons/bi";
 // BiImages,
-import * as AiIcons from "react-icons/ai";
+import { AiFillHome, AiOutlineScissor } from "react-icons/ai";
 
 export const MenuData = [
   {
     title: "Home",
     path: "/",
-    icon: <AiIcons.AiFillHome />,
+    icon: <AiFillHome />,
     class: "nav-text",
   },
   {
@@ -22,7 +22,7 @@ export const MenuData = [
   {
     title: "Barbers",
     path: "/barbers",
-    icon: <AiIcons.AiOutlineScissor />,
+    icon: <AiOutlineScissor />,
     class: "nav-text",
   },
   {

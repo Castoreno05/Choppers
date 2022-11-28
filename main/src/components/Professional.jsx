@@ -1,11 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Professional({ name, img }) {
-  
+export default function Professional({
+  name,
+  img,
+  setSelected,
+  number,
+  setValue,
+}) {
+  function handleClick() {
+    setSelected(true);
+    setValue(`${number}`);
+  }
+
   return (
     <Container>
-      <div className="e-card">
+      <div className="e-card" id={number} onClick={handleClick}>
         <div className="portrait">{img}</div>
         <h2>{name}</h2>
       </div>

@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import * as FaIcons from "react-icons/fa";
+import { FaMapMarkerAlt, FaPhoneAlt, FaPaperPlane } from "react-icons/fa";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 import styled from "styled-components";
 
@@ -77,19 +77,19 @@ function Map() {
           </GoogleMap>
           <div className="contact-us">
             <section>
-              <FaIcons.FaMapMarkerAlt />
+              <FaMapMarkerAlt />
               <p>
                 <strong>Address</strong>: 1501 S Richey St, Pasadena, TX 77502
               </p>
             </section>
             <section>
-              <FaIcons.FaPhoneAlt />
+              <FaPhoneAlt />
               <p>
                 <strong>Phone</strong>: (713) 898-1217
               </p>
             </section>
             <section>
-              <FaIcons.FaPaperPlane />
+              <FaPaperPlane />
               <p>
                 <strong>Email</strong>: choppers@gmail.com
               </p>
@@ -191,20 +191,20 @@ const Container = styled.div`
         }
       }
     }
-    .location-hours{
+    .location-hours {
       width: 40%;
       .map-container {
         height: 50vh;
         border-radius: 10px;
         width: 100%;
       }
-      .contact-us{
+      .contact-us {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         height: 33.5vh;
         width: 100%;
-        section{
+        section {
           display: flex;
           flex-direction: row;
           gap: 1rem;

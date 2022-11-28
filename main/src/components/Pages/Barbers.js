@@ -6,7 +6,6 @@ import styled from "styled-components";
 
 function Barbers() {
   const data = { Matthew, Tank, Germ };
-  console.log(data);
   const [active, setActive] = useState("barber-Tank");
 
   return (
@@ -19,32 +18,38 @@ function Barbers() {
         <div className="spacer">|</div>
         <button onClick={() => setActive("barber-Germ")}>Germ</button>
       </div>
-      {data &&
-
+      {data && (
         <div className="barber-wrapper">
-          {active === "barber-Tank" && <Card name={Tank.name} image={Tank.img} intro={Tank.intro} />}
-          {active === "barber-Matthew" && <Card name={Matthew.name} image={Matthew.img} intro={Matthew.intro} />}
-          {active === "barber-Germ" && <Card name={Germ.name} image={Germ.img} intro={Germ.intro} />}
+          {active === "barber-Tank" && (
+            <Card name={Tank.name} image={Tank.img} intro={Tank.intro} />
+          )}
+          {active === "barber-Matthew" && (
+            <Card
+              name={Matthew.name}
+              image={Matthew.img}
+              intro={Matthew.intro}
+            />
+          )}
+          {active === "barber-Germ" && (
+            <Card name={Germ.name} image={Germ.img} intro={Germ.intro} />
+          )}
         </div>
-      }
+      )}
     </Employee>
   );
 }
 
 const Employee = styled.div`
   display: flex;
-  gap: 1rem;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  // height: 100vh;
   padding: 1.5rem;
-  h1{
+  h1 {
     padding: 1rem;
     display: flex;
     justify-content: center;
   }
-  .barber-navigation{
+  .barber-navigation {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -52,7 +57,7 @@ const Employee = styled.div`
     height: 8vh;
     padding: 1rem;
     width: 100%;
-    button{
+    button {
       font-size: 32px;
       background: none;
       border: none;
@@ -61,11 +66,11 @@ const Employee = styled.div`
       // height: 50px;
       // width: 100px;
     }
-    .spacer{
+    .spacer {
       font-size: 32px;
     }
   }
-  .barber-wrapper{
+  .barber-wrapper {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -77,17 +82,7 @@ const Employee = styled.div`
       height: 150px;
       width: 150px;
     }
-    .active{
-      background-color: lightgreen;
-      border: solid 0.1rem;
-      height: 150px;
-      width: 150px;
-    }
-    .inactive{
-      display: none;
-    }
   }
 `;
 
 export default Barbers;
-

@@ -1,73 +1,162 @@
 import React from "react";
-import "./footer.css";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 import {
-  AiOutlineMail,
-  AiOutlineInstagram,
+  AiOutlineYoutube,
+  AiOutlineTwitter,
   AiFillFacebook,
-  AiFillYoutube,
+  AiFillInstagram,
 } from "react-icons/ai";
-import { FaApplePay, FaCcAmex } from "react-icons/fa";
-import { SiZelle, SiVenmo, SiVisa } from "react-icons/si";
+import styled from "styled-components";
 
 function Footer() {
   return (
-    <div className="footer">
-      <Container fluid className="footerContainer">
-        <h2>Join Us For Updates</h2>
-        <Row>
-          <form className="footerForm">
-            <input placeholder="Email Here" />
-            <button id="email" aria-label="email-button">
-              <AiOutlineMail className="submitIcon" />
-            </button>
-          </form>
-        </Row>
-        <Row>
-          <div className="footerIcons">
-            <AiOutlineInstagram className="instagram" />
-            <AiFillYoutube className="youtube" />
+    <Container>
+      <div className="left-container">
+        <div className="office">
+          <h2>Choppers</h2>
+          <div className="address">
+            <h3>Address</h3>
+            <p>1501 South Richey St</p>
+            <p>Pasadena Tx, 77502</p>
+          </div>
+        </div>
+        <div className="follow-us">
+          <h2>Follow Us</h2>
+          <div className="socials">
+            <AiOutlineYoutube className="youtube" />
+            <AiOutlineTwitter className="twitter" />
             <AiFillFacebook className="facebook" />
+            <AiFillInstagram className="instagram" />
           </div>
-        </Row>
-        <Row>
-          <div className="footerNav">
-            <p>Search</p>
-            <p>Refund Policy</p>
-            <p>Shipping Policy</p>
-            <p>Terms of Service</p>
+        </div>
+      </div>
+      <div className="middle-container">
+        <div className="services">
+          <h2>Services</h2>
+          <div className="group-wrapper">
+            <div className="group-one">
+              <p>Tapers</p>
+              <p>Scissor Cuts</p>
+              <p>Low Fades</p>
+              <p>Mid Fades</p>
+              <p>Bald Fades</p>
+            </div>
+            <div className="group-two">
+              <p>Edge Ups</p>
+              <p>Mohawks</p>
+              <p>Designs</p>
+              <p>Beard Trims</p>
+              <p>Flat Tops</p>
+            </div>
           </div>
-        </Row>
-        <Row>
-          <ul className="footerPayment">
-            <li>
-              <FaApplePay className="payment applepay" />
-            </li>
-            <li>
-              <SiVisa className="payment visa" />
-            </li>
-            <li>
-              <FaCcAmex className="payment amex" />
-            </li>
-            <li>
-              <SiZelle className="payment zelle" />
-            </li>
-            <li>
-              <SiVenmo className="payment venmo" />
-            </li>
-          </ul>
-        </Row>
-        <Row>
-          <div className="footerRights">
-            <p>
-              © 2022 Choppers<span>Created by Matthew Castoreno</span>
-            </p>
+        </div>
+      </div>
+      <div className="right-container">
+        <div className="operation-hours">
+          <h2>Business Hours</h2>
+          <div className="group-wrapper">
+            <div className="group-one">
+              <p>Sunday</p>
+              <p>Monday</p>
+              <p>Tuesday</p>
+              <p>Wednesday</p>
+              <p>Thursday</p>
+              <p>Friday</p>
+              <p>Saturday</p>
+            </div>
+            <div className="group-two">
+              <p>Closed</p>
+              <p>Closed</p>
+              <p>10AM - 6PM</p>
+              <p>10AM - 6PM</p>
+              <p>10AM - 6PM</p>
+              <p>10AM - 6PM</p>
+              <p>10AM - 6PM</p>
+            </div>
           </div>
-        </Row>
-      </Container>
-    </div>
+        </div>
+      </div>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  color: whitesmoke;
+  text-shadow: 0 0 10px #ba0d16, 0 0 20px #ba0d16, 0 0 40px #ba0d16,
+    0 0 80px #ba0d16, 0 0 160px #ba0d16;
+  background-color: black;
+  display: grid;
+  height: 30vh;
+  padding: 1.5rem;
+  grid-template-columns: 33% 33% 33%;
+  .left-container {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    justify-content: center;
+    align-items: center;
+    .office,
+    .follow-us {
+      h2,
+      .address,
+      .socials {
+        padding: 0.5rem;
+      }
+      svg {
+        color: #fff;
+        height: 35px;
+        width: 35px;
+      }
+    }
+  }
+  .middle-container {
+    display: grid;
+    justify-content: center;
+    .services {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      h2 {
+        padding: 0.3rem;
+        text-align: center;
+      }
+      .group-wrapper {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        align-items: center;
+        gap: 2rem;
+        line-height: 2;
+      }
+    }
+  }
+  .right-container {
+    display: grid;
+    justify-content: center;
+    .operation-hours {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      h2 {
+        text-align: center;
+        padding: 0.35rem;
+      }
+      .group-wrapper {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        line-height: 1.5;
+        gap: 3rem;
+      }
+    }
+  }
+  @media screen and (max-width: 776px) {
+    height: auto;
+    grid-template-columns: 50% 50%;
+    .middle-container{
+      display: none;
+    }
+  }
+  @media screen and (max-width: 558px) {
+    height: auto;
+    grid-template-columns: 100%;
+  }
+`;
 
 export default Footer;

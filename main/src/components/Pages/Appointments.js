@@ -1,18 +1,17 @@
-import React from "react";
-import { Matthew, Tank, Germ, Jimmy } from "../EmployeeData";
+import React, { useState } from "react";
+import { Matthew, Tank, Germ } from "../EmployeeData";
+import Services from "./Services";
 import Professional from "../Professional";
 import styled from "styled-components";
 
 function Appointments() {
-  const data = { Matthew, Tank, Germ, Jimmy };
-
-  console.log(data);
-
+  const [services, setServices] = useState(false);
+  
   return (
     <Container>
       <h1>Choose a professional</h1>
       <div className="appointment-wrapper">
-        <div className="professionals">
+        <div className="professionals" onClick={() => setServices(true)}>
           <Professional name={Tank.name} img={Tank.img} />
           <Professional name={Tank.name} img={Tank.img} />
           <Professional name={Germ.name} img={Germ.img} />
@@ -22,6 +21,7 @@ function Appointments() {
           <Professional name={Germ.name} img={Germ.img} />
           <Professional name={Germ.name} img={Germ.img} />
         </div>
+        <Services trigger={services} setServices={setServices} />
         <div className="items-selected">
           <div className="shopping-cart">
             <h2>Your Order</h2>

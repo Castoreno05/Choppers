@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 export default function Professional({ name, img }) {
+  
   return (
     <Container>
       <div className="e-card">
@@ -33,6 +34,13 @@ const Container = styled.div`
     }
     h2 {
       padding: 1rem;
+    }
+  }
+  .e-card:hover {
+    cursor: pointer;
+    background-color: black;
+    h2 {
+      color: white;
     }
   }
 `;

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Matthew, Tank, Germ } from "../EmployeeData";
 import Card from "../Card";
+import Booking from "../Booking";
 import styled from "styled-components";
 
 function Barbers() {
   const data = { Matthew, Tank, Germ };
-
   const [active, setActive] = useState("barber-Tank");
 
   return (

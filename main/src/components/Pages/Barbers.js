@@ -28,14 +28,14 @@ function Barbers() {
         <button onClick={() => setActive("barber-Germ")}>Germ</button>
         <div className="spacer">|</div>
         <button onClick={() => setActive("barber-Jimmy")}>Jimmy</button>
-        <div className="spacer">|</div>
+        {/* <div className="spacer">|</div>
         <button onClick={() => setActive("barber-Victor")}>Victor</button>
         <div className="spacer">|</div>
         <button onClick={() => setActive("barber-Stan")}>Stan</button>
         <div className="spacer">|</div>
         <button onClick={() => setActive("barber-Dennis")}>Dennis</button>
         <div className="spacer">|</div>
-        <button onClick={() => setActive("barber-Mark")}>Mark</button>
+        <button onClick={() => setActive("barber-Mark")}>Mark</button> */}
       </div>
       {data && (
         <div className="barber-wrapper">

@@ -96,14 +96,15 @@ const Container = styled.div`
     .office,
     .follow-us {
       h2,
-      .address,
-      .socials {
+      .address {
         padding: 0.5rem;
       }
-      svg {
-        color: #fff;
-        height: 35px;
-        width: 35px;
+      .socials {
+        padding: 0.25rem;
+        svg {
+          color: #fff;
+          font-size: 34px;
+        }
       }
     }
   }
@@ -149,10 +150,27 @@ const Container = styled.div`
   @media screen and (max-width: 776px) {
     height: auto;
     grid-template-columns: 50% 50%;
-    .middle-container{
+    p {
+      font-size: 18px;
+    }
+    .middle-container {
       display: none;
     }
   }
+  @media screen and (max-width: 800px) {
+    h2 {
+      font-size: 22px;
+    }
+    p {
+      font-size: 14px;
+    }
+    .socials {
+      .youtube, .twitter, .facebook, .instagram {
+        font-size: 24px !important;
+      }
+    }
+  }
+
   @media screen and (max-width: 558px) {
     height: auto;
     grid-template-columns: 100%;

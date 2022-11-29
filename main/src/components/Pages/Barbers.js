@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Matthew, Tank, Germ } from "../EmployeeData";
 import Card from "../Card";
-import Booking from "../Booking";
+// import Booking from "../Booking";
 import styled from "styled-components";
 
 function Barbers() {

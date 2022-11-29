@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 export default function Services(props) {
-  return props.trigger ? (
-    <div>Services</div>
-  ) : (
-    ""
-  );
+  // const [myClass, setmyClass] = useState("services");
+
+  return props.trigger ? <div>Services</div> : "";
 }

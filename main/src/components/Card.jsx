@@ -33,7 +33,12 @@ const Container = styled.div`
   border: dotted 0.1rem black;
   .barber-Tank,
   .barber-Matthew,
-  .barber-Germ {
+  .barber-Germ,
+  .barber-Jimmy,
+  .barber-Victor,
+  .barber-Stan,
+  .barber-Dennis,
+  .barber-Mark {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -68,7 +73,9 @@ const Container = styled.div`
       }
     }
   }
-  .barber-Matthew {
+  .barber-Matthew,
+  .barber-Jimmy,
+  .barber-Mark {
     .barber-info {
       img {
         height: 280px !important;
@@ -76,7 +83,8 @@ const Container = styled.div`
       }
     }
   }
-  .barber-Germ {
+  .barber-Germ,
+  .barber-Stan {
     .barber-info {
       img {
         height: 260px !important;

@@ -7,10 +7,12 @@ export default function Professional({
   setSelected,
   number,
   setValue,
+  setName,
 }) {
   function handleClick() {
     setSelected(true);
     setValue(`${number}`);
+    setName(`${name}`);
   }
 
   return (

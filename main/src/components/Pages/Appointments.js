@@ -16,16 +16,16 @@ import styled from "styled-components";
 function Appointments() {
   const [myClass, setMyClass] = useState("professionals");
   const [value, setValue] = useState(null);
+  const [name, setName] = useState(null);
   const [selected, setSelected] = useState(false);
   const [services, setServices] = useState(false);
 
   useEffect(() => {
     if (selected) {
-      console.log(value);
       setMyClass("professionals-disabled");
       setServices(true);
     }
-  }, [selected, value]);
+  }, [selected]);
 
   return (
     <Container>
@@ -39,6 +39,7 @@ function Appointments() {
             setSelected={setSelected}
             number={Tank.eNumber}
             setValue={setValue}
+            setName={setName}
           />
           <Professional
             name={Jimmy.name}
@@ -47,6 +48,7 @@ function Appointments() {
             setSelected={setSelected}
             number={Jimmy.eNumber}
             setValue={setValue}
+            setName={setName}
           />
           <Professional
             name={Germ.name}
@@ -55,6 +57,7 @@ function Appointments() {
             setSelected={setSelected}
             number={Germ.eNumber}
             setValue={setValue}
+            setName={setName}
           />
           <Professional
             name={Victor.name}
@@ -63,6 +66,7 @@ function Appointments() {
             setSelected={setSelected}
             number={Victor.eNumber}
             setValue={setValue}
+            setName={setName}
           />
           <Professional
             name={Matthew.name}
@@ -71,6 +75,7 @@ function Appointments() {
             setSelected={setSelected}
             number={Matthew.eNumber}
             setValue={setValue}
+            setName={setName}
           />
           <Professional
             name={Stan.name}
@@ -79,6 +84,7 @@ function Appointments() {
             setSelected={setSelected}
             number={Stan.eNumber}
             setValue={setValue}
+            setName={setName}
           />
           <Professional
             name={Dennis.name}
@@ -87,6 +93,7 @@ function Appointments() {
             setSelected={setSelected}
             number={Dennis.eNumber}
             setValue={setValue}
+            setName={setName}
           />
           <Professional
             name={Mark.name}
@@ -95,12 +102,21 @@ function Appointments() {
             setSelected={setSelected}
             number={Mark.eNumber}
             setValue={setValue}
+            setName={setName}
           />
         </div>
         <Services trigger={services} setServices={setServices} />
         <div className="items-selected">
           <div className="shopping-cart">
             <h2>Your Order</h2>
+            <div className="barber-selected">
+              <p>
+                Employee #: <strong>{value}</strong>
+              </p>
+              <p>
+                Professional: <strong>{name}</strong>
+              </p>
+            </div>
             <div className="time-div">
               <button>Choose a time</button>
             </div>
@@ -117,7 +133,8 @@ const Container = styled.div`
   flex-direction: column;
   height: 100vh;
   padding: 1.5rem;
-  h1 {
+  h1,
+  p {
     text-align: center;
     padding: 1rem 2.5rem;
   }
@@ -126,8 +143,11 @@ const Container = styled.div`
     grid-template-columns: 70% 30%;
     overflow: hidden;
     .professionals-disabled {
-      display: none;
-      transition: 4s ease-out;
+      display: grid;
+      grid-template-columns: 25% 25% 25% 25%;
+      transform: translateX(-200%);
+      transition: transform ease-out 2s;
+      position: absolute;
     }
     .professionals {
       display: grid;
@@ -142,6 +162,12 @@ const Container = styled.div`
         h2 {
           text-align: center;
           padding: 0.5rem;
+        }
+        .barber-selected {
+          p {
+            font-size: 24px;
+            padding: 0.2rem;
+          }
         }
         .time-div {
           display: flex;
@@ -164,6 +190,13 @@ const Container = styled.div`
       grid-template-columns: 50% 50%;
       .professionals {
         grid-template-columns: 100% !important;
+      }
+    }
+  }
+  @media screen and (max-width: 550px) {
+    .barber-selected {
+      p {
+        font-size: 16px !important;
       }
     }
   }

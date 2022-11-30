@@ -8,6 +8,10 @@ function Appointments() {
   const [teamActive, setTeamActive] = useState(true);
   // State for Services
   const [services, setServices] = useState(false);
+  // State for Shopping Cart
+  const [employeeName, setEmployeeName] = useState(null);
+  const [employeeID, setEmployeeID] = useState(null);
+
 
   useEffect(() => {
     if (!teamActive) {
@@ -19,19 +23,19 @@ function Appointments() {
     <Container>
       <h1>Choose a professional</h1>
       <div className="appointment-wrapper">
-        <Team teamActive={teamActive} setTeamActive={setTeamActive} />
+        <Team teamActive={teamActive} setTeamActive={setTeamActive} employeeName={employeeName} employeeID={employeeID} setEmployeeName={setEmployeeName} setEmployeeID={setEmployeeID} />
         <Services trigger={services} setServices={setServices} />
         <div className="items-selected">
           <div className="shopping-cart">
             <h2>Your Order</h2>
-            {/* <div className="barber-selected">
+            <div className="barber-selected">
               <p>
-                Employee #: <strong>{value}</strong>
+                Employee #: <strong>{employeeID}</strong>
               </p>
               <p>
-                Professional: <strong>{name}</strong>
+                Professional: <strong>{employeeName}</strong>
               </p>
-            </div> */}
+            </div>
             <div className="time-div">
               <button>Choose a time</button>
             </div>

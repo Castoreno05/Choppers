@@ -21,8 +21,10 @@ export default function Team(props) {
   useEffect(() => {
     if (handleClick) {
       props.setTeamActive(false);
+      props.setEmployeeName(eSelected);
+      props.setEmployeeID(eNumberSelected);
     }
-  }, [props, selected, handleClick]);
+  }, [props, selected, handleClick, eNumberSelected, eSelected]);
 
   return props.teamActive ? (
     <Container>
@@ -141,6 +143,17 @@ const Container = styled.div`
   grid-template-columns: 25% 25% 25% 25%;
   justify-content: center;
   align-items: center;
+  animation: fadeIn 1s;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
 
   @media screen and (max-width: 1020px) {
     grid-template-columns: 50% 50%;

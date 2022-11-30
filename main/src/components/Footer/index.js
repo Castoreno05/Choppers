@@ -81,8 +81,8 @@ function Footer() {
 
 const Container = styled.div`
   color: whitesmoke;
-  text-shadow: 0 0 10px #ba0d16, 0 0 20px #ba0d16, 0 0 40px #ba0d16,
-    0 0 80px #ba0d16, 0 0 160px #ba0d16;
+  // text-shadow: 0 0 10px #ba0d16, 0 0 20px #ba0d16, 0 0 40px #ba0d16,
+  //   0 0 80px #ba0d16, 0 0 160px #ba0d16;
   background-color: black;
   display: grid;
   height: 30vh;

@@ -6,14 +6,18 @@ export default function Professional({
   img,
   setSelected,
   number,
-  setValue,
-  setName,
+  setENumberSelected,
+  setESelected,
+  setHandleClick,
 }) {
-  function handleClick() {
+  const handleClick = () => {
+    setENumberSelected(`${number}`);
+    setESelected(`${name}`);
     setSelected(true);
-    setValue(`${number}`);
-    setName(`${name}`);
-  }
+    setHandleClick(true);
+    console.log(`Employee ID: ${number}`);
+    console.log(`Employee: ${name} has been selected`);
+  };
 
   return (
     <Container>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Professional from "./Professional";
 import {
@@ -13,27 +13,26 @@ import {
 } from "./EmployeeData";
 
 export default function Team(props) {
-  const [selected, setSelected] = useState(false);
   const [handleClick, setHandleClick] = useState(false);
+  // Used to determine Employee name & ID selected
   const [eNumberSelected, setENumberSelected] = useState(null);
   const [eSelected, setESelected] = useState(null);
 
   useEffect(() => {
     if (handleClick) {
-      props.setTeamActive(false);
       props.setEmployeeName(eSelected);
       props.setEmployeeID(eNumberSelected);
+      props.setTeamActive(false);
+      props.setServicesActive(true);
     }
-  }, [props, selected, handleClick, eNumberSelected, eSelected]);
+  }, [props, handleClick, eNumberSelected, eSelected]);
 
-  return props.teamActive ? (
+  return props.trigger ? (
     <Container>
       <Professional
         number={Tank.eNumber}
         name={Tank.name}
         img={Tank.img}
-        selected={selected}
-        setSelected={setSelected}
         eNumberSelected={eNumberSelected}
         setENumberSelected={setENumberSelected}
         eSelected={eSelected}
@@ -45,8 +44,6 @@ export default function Team(props) {
         number={Jimmy.eNumber}
         name={Jimmy.name}
         img={Jimmy.img}
-        selected={selected}
-        setSelected={setSelected}
         eNumberSelected={eNumberSelected}
         setENumberSelected={setENumberSelected}
         eSelected={eSelected}
@@ -58,8 +55,6 @@ export default function Team(props) {
         number={Germ.eNumber}
         name={Germ.name}
         img={Germ.img}
-        selected={selected}
-        setSelected={setSelected}
         eNumberSelected={eNumberSelected}
         setENumberSelected={setENumberSelected}
         eSelected={eSelected}
@@ -71,8 +66,6 @@ export default function Team(props) {
         number={Victor.eNumber}
         name={Victor.name}
         img={Victor.img}
-        selected={selected}
-        setSelected={setSelected}
         eNumberSelected={eNumberSelected}
         setENumberSelected={setENumberSelected}
         eSelected={eSelected}
@@ -84,8 +77,6 @@ export default function Team(props) {
         number={Matthew.eNumber}
         name={Matthew.name}
         img={Matthew.img}
-        selected={selected}
-        setSelected={setSelected}
         eNumberSelected={eNumberSelected}
         setENumberSelected={setENumberSelected}
         eSelected={eSelected}
@@ -97,8 +88,6 @@ export default function Team(props) {
         number={Stan.eNumber}
         name={Stan.name}
         img={Stan.img}
-        selected={selected}
-        setSelected={setSelected}
         eNumberSelected={eNumberSelected}
         setENumberSelected={setENumberSelected}
         eSelected={eSelected}
@@ -110,8 +99,6 @@ export default function Team(props) {
         number={Dennis.eNumber}
         name={Dennis.name}
         img={Dennis.img}
-        selected={selected}
-        setSelected={setSelected}
         eNumberSelected={eNumberSelected}
         setENumberSelected={setENumberSelected}
         eSelected={eSelected}
@@ -123,8 +110,6 @@ export default function Team(props) {
         number={Mark.eNumber}
         name={Mark.name}
         img={Mark.img}
-        selected={selected}
-        setSelected={setSelected}
         eNumberSelected={eNumberSelected}
         setENumberSelected={setENumberSelected}
         eSelected={eSelected}

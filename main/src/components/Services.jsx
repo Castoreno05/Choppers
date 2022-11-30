@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { Haircut, Beard, Design, Edge_Up } from "./ServiceData";
 
 export default function Services(props) {
-
   const [selectedService, setSelectedService] = useState(null);
   const [selectedPrice, setSelectedPrice] = useState(null);
   const [handleSelected, setHandleSelected] = useState(false);
@@ -12,11 +11,13 @@ export default function Services(props) {
   useEffect(() => {
     if (handleSelected) {
       props.setServiceName(selectedService);
-      props.setServicesActive(null);
+      props.setCalActive(true);
+      props.setServicesActive(false);
+      console.log(`Service selected: ${selectedService}`);
     }
-  }, [props, selectedService, handleSelected])
+  }, [props, selectedService, handleSelected]);
 
-  return props.servicesActive ? (
+  return props.clicker ? (
     <Container>
       <Service
         name={Haircut.service}
@@ -27,7 +28,8 @@ export default function Services(props) {
         selectedPrice={selectedPrice}
         setSelectedPrice={setSelectedPrice}
         handleSelected={handleSelected}
-        setHandleSelected={setHandleSelected} />
+        setHandleSelected={setHandleSelected}
+      />
       <Service
         name={Beard.service}
         price={Beard.price}
@@ -37,7 +39,8 @@ export default function Services(props) {
         selectedPrice={selectedPrice}
         setSelectedPrice={setSelectedPrice}
         handleSelected={handleSelected}
-        setHandleSelected={setHandleSelected} />
+        setHandleSelected={setHandleSelected}
+      />
       <Service
         name={Design.service}
         price={Design.price}
@@ -47,7 +50,8 @@ export default function Services(props) {
         selectedPrice={selectedPrice}
         setSelectedPrice={setSelectedPrice}
         handleSelected={handleSelected}
-        setHandleSelected={setHandleSelected} />
+        setHandleSelected={setHandleSelected}
+      />
       <Service
         name={Edge_Up.service}
         price={Edge_Up.price}
@@ -57,7 +61,8 @@ export default function Services(props) {
         selectedPrice={selectedPrice}
         setSelectedPrice={setSelectedPrice}
         handleSelected={handleSelected}
-        setHandleSelected={setHandleSelected} />
+        setHandleSelected={setHandleSelected}
+      />
     </Container>
   ) : (
     ""
@@ -69,9 +74,9 @@ const Container = styled.div`
   grid-template-columns: 25% 25% 25% 25%;
   align-items: center;
   padding: 0.3rem;
+  animation: fadeIn 2s;
   .fade {
     text-align: left;
-    animation: fadeIn 2s;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,11 +95,11 @@ const Container = styled.div`
       opacity: 1;
     }
   }
-  
-  @media screen and (max-width: 860px){
+
+  @media screen and (max-width: 860px) {
     grid-template-columns: 50% 50%;
   }
-  @media screen and (max-width: 500px){
+  @media screen and (max-width: 500px) {
     grid-template-columns: 100%;
   }
 `;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Team from "../Team";
 import Services from "../Services";
 import Calendar from "../Calendar";
@@ -16,38 +16,27 @@ function Appointments() {
   const [employeeID, setEmployeeID] = useState(null);
   const [serviceName, setServiceName] = useState(null);
 
-
-  useEffect(() => {
-    if (!teamActive) {
-      setTeamActive(null);
-    }
-  }, [teamActive]);
-
-  useEffect(() => {
-    if (teamActive === null) {
-      setServicesActive(true);
-    }
-  }, [teamActive, servicesActive])
-
   return (
     <Container>
       <h1>Choose a professional</h1>
       <div className="appointment-wrapper">
         <Team
-          teamActive={teamActive}
+          trigger={teamActive}
           setTeamActive={setTeamActive}
           employeeName={employeeName}
           employeeID={employeeID}
           setEmployeeName={setEmployeeName}
-          setEmployeeID={setEmployeeID} />
-        <Services
-          servicesActive={servicesActive}
+          setEmployeeID={setEmployeeID}
           setServicesActive={setServicesActive}
-          serviceName={serviceName}
-          setServiceName={setServiceName} />
-        <Calendar
-          calActive={calActive} setCalActive={setCalActive}
         />
+        <Services
+          clicker={servicesActive}
+          serviceName={serviceName}
+          setServiceName={setServiceName}
+          setCalActive={setCalActive}
+          setServicesActive={setServicesActive}
+        />
+        <Calendar calActive={calActive} />
         <div className="items-selected">
           <div className="shopping-cart">
             <h2>Your Order</h2>
@@ -80,7 +69,7 @@ const Container = styled.div`
   padding: 1.5rem;
   h1 {
     text-align: center;
-    padding: .6rem 2.5rem;
+    padding: 0.6rem 2.5rem;
   }
   .appointment-wrapper {
     display: grid;

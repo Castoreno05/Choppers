@@ -4,7 +4,6 @@ import styled from "styled-components";
 export default function Professional({
   name,
   img,
-  setSelected,
   number,
   setENumberSelected,
   setESelected,
@@ -13,7 +12,6 @@ export default function Professional({
   const handleClick = () => {
     setENumberSelected(`${number}`);
     setESelected(`${name}`);
-    setSelected(true);
     setHandleClick(true);
     console.log(`Employee ID: ${number}`);
     console.log(`Employee: ${name} has been selected`);

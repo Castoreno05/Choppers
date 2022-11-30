@@ -12,7 +12,7 @@ export default function Services(props) {
     if (handleSelected) {
       props.setServiceName(selectedService);
       props.setCalActive(true);
-      props.setServicesActive(false);
+      props.setServicesActive(null);
       console.log(`Service selected: ${selectedService}`);
     }
   }, [props, selectedService, handleSelected]);

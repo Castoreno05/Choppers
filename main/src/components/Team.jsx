@@ -22,7 +22,7 @@ export default function Team(props) {
     if (handleClick) {
       props.setEmployeeName(eSelected);
       props.setEmployeeID(eNumberSelected);
-      props.setTeamActive(false);
+      props.setTeamActive(null);
       props.setServicesActive(true);
     }
   }, [props, handleClick, eNumberSelected, eSelected]);

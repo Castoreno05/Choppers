@@ -11,10 +11,12 @@ export default function Services(props) {
   useEffect(() => {
     if (handleSelected) {
       props.setServiceName(selectedService);
-      props.setCalActive(true);
       props.setServicesActive(null);
+      props.setTitle();
+      props.setDateActive(true);
       console.log(`Service selected: ${selectedService}`);
     }
+    return;
   }, [props, selectedService, handleSelected]);
 
   return props.clicker ? (

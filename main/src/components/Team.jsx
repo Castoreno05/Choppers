@@ -24,6 +24,7 @@ export default function Team(props) {
       props.setEmployeeID(eNumberSelected);
       props.setTeamActive(null);
       props.setServicesActive(true);
+      props.setTitle("Select a Service")
     }
   }, [props, handleClick, eNumberSelected, eSelected]);
 

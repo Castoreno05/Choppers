@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import Team from "../Team";
 import Services from "../Services";
-import Calendar from "../Calendar";
+import Date from "../Date";
 import styled from "styled-components";
 
 function Appointments() {
+  const [title, setTitle] = useState("Choose a Professional");
   // State for Team
   const [teamActive, setTeamActive] = useState(true);
   // State for Services
   const [servicesActive, setServicesActive] = useState(false);
-  // State for Calendar
-  const [calActive, setCalActive] = useState(false);
+  // State for Date
+  const [dateActive, setDateActive] = useState(false);
   // State for Shopping Cart
   const [employeeName, setEmployeeName] = useState(null);
   const [employeeID, setEmployeeID] = useState(null);
@@ -18,7 +19,7 @@ function Appointments() {
 
   return (
     <Container>
-      <h1>Choose a professional</h1>
+      <h1>{title}</h1>
       <div className="appointment-wrapper">
         <Team
           trigger={teamActive}
@@ -28,15 +29,17 @@ function Appointments() {
           setEmployeeName={setEmployeeName}
           setEmployeeID={setEmployeeID}
           setServicesActive={setServicesActive}
+          setTitle={setTitle}
         />
         <Services
           clicker={servicesActive}
+          setServicesActive={setServicesActive}
           serviceName={serviceName}
           setServiceName={setServiceName}
-          setCalActive={setCalActive}
-          setServicesActive={setServicesActive}
+          setDateActive={setDateActive}
+          setTitle={setTitle}
         />
-        <Calendar calActive={calActive} />
+        <Date dateActive={dateActive} />
         <div className="items-selected">
           <div className="shopping-cart">
             <h2>Your Order</h2>

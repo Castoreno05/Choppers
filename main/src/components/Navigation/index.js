@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
-import { MenuData } from "../MenuData";
+import { MenuData } from "../../Data/MenuData";
 import "./navigation.css";
 import { IconContext } from "react-icons";
 

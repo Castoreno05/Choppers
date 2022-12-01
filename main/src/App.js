@@ -1,13 +1,13 @@
-import Navigation from "./components/Navigation";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./components/Pages/Home";
-import About from "./components/Pages/About";
-import Barbers from "./components/Pages/Barbers";
-import Contact from "./components/Pages/Contact";
-import Gallery from "./components/Pages/Gallery";
-import Products from "./components/Pages/Products";
-import Appointments from "./components/Pages/Appointments";
-import Footer from "./components/Footer";
+import Navigation from "./Components/Navigation";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Barbers from "./Pages/Barbers";
+import Contact from "./Pages/Contact";
+import Gallery from "./Pages/Gallery";
+import Products from "./Pages/Products";
+import Appointments from "./Pages/Appointments";
+import Footer from "./Components/Footer";
 
 function App() {
   return (

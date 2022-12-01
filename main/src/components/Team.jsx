@@ -10,7 +10,7 @@ import {
   Stan,
   Dennis,
   Mark,
-} from "./EmployeeData";
+} from "../Data/EmployeeData";
 
 export default function Team(props) {
   const [handleClick, setHandleClick] = useState(false);

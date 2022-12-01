@@ -8,8 +8,8 @@ import {
   Stan,
   Dennis,
   Mark,
-} from "../EmployeeData";
-import Card from "../Card";
+} from "../Data/EmployeeData";
+import Card from "../Components/Card";
 // import Booking from "../Booking";
 import styled from "styled-components";
 

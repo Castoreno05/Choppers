@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Service from "./Service";
 import styled from "styled-components";
-import { Haircut, Beard, Design, Edge_Up } from "./ServiceData";
+import { Haircut, Beard, Design, Edge_Up } from "../Data/ServiceData";
 
 export default function Services(props) {
   const [selectedService, setSelectedService] = useState(null);

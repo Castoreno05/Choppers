@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Team from "../Team";
-import Services from "../Services";
-import Date from "../Date";
+import Team from "../Components/Team";
+import Services from "../Components/Services";
+import Date from "../Components/Date";
 import styled from "styled-components";
 
 function Appointments() {

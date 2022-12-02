@@ -2,19 +2,24 @@ import React from "react";
 import styled from "styled-components";
 
 export default function Professional(props) {
+
   const handleClick = (e) => {
     e.preventDefault();
-    props.setActive(false);
-  };
+    props.setEmployeeName(`${props.proName}`);
+    props.setEmployeeID(`${props.proID}`);
+    props.setServiceActive(true)
+    props.setProActive(undefined);
+  }
+
 
   return (
     <Container>
-      <div className="e-card" onClick={handleClick}>
+      <div className="e-card" id={props.proID} onClick={handleClick}>
         <div className="portrait">{props.proImage}</div>
         <h2>{props.proName}</h2>
       </div>
     </Container>
-  );
+  )
 }
 
 const Container = styled.div`

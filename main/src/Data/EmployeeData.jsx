@@ -1,4 +1,4 @@
-const Professionals = [
+const EmployeeData = [
   {
     id: 1,
     name: "Matthew",
@@ -105,4 +105,4 @@ const Professionals = [
   },
 ];
 
-export { Professionals };
+export { EmployeeData };

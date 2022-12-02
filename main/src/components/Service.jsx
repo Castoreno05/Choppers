@@ -4,12 +4,16 @@ import styled from "styled-components";
 export default function Service(props) {
   const handleClick = (e) => {
     e.preventDefault();
-    props.setActive(null);
+    props.setServiceName(`${props.serviceName}`);
+    props.setServiceTime(`${props.serviceTime}`);
+    props.setServicePrice(`${props.servicePrice}`);
+    props.setCalendarActive(true);
+    // props.setServiceActive(undefined);
   };
 
   return (
     <Container>
-      <div className="service-card" onClick={handleClick}>
+      <div className="s-card" onClick={handleClick}>
         <div className="service-header">
           <h5>{props.serviceName}</h5>
           <p>{props.serviceTime}</p>
@@ -19,14 +23,14 @@ export default function Service(props) {
         </div>
       </div>
     </Container>
-  );
+  )
 }
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  .service-card {
+  .s-card {
     cursor: pointer;
     border-radius: 10px;
     border: solid 0.1rem black;
@@ -43,7 +47,7 @@ const Container = styled.div`
       padding: 0.5rem;
     }
   }
-  .service-card:hover {
+  .s-card:hover {
     background-color: black;
     color: #fff;
   }

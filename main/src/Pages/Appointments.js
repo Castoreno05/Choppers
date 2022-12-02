@@ -1,58 +1,60 @@
 import React, { useState } from "react";
-import Team from "../Components/Team";
-import Services from "../Components/Services";
-import Date from "../Components/Date";
+import { Professionals } from "../Data/EmployeeData";
+import { Services } from "../Data/ServiceData";
+import Professional from "../Components/Professional";
+import Service from "../Components/Service";
 import styled from "styled-components";
 
 function Appointments() {
-  const [title, setTitle] = useState("Choose a Professional");
-  // State for Team
-  const [teamActive, setTeamActive] = useState(true);
-  // State for Services
-  const [servicesActive, setServicesActive] = useState(false);
-  // State for Date
-  const [dateActive, setDateActive] = useState(false);
+  const [active, setActive] = useState(true);
+
   // State for Shopping Cart
-  const [employeeName, setEmployeeName] = useState(null);
-  const [employeeID, setEmployeeID] = useState(null);
-  const [serviceName, setServiceName] = useState(null);
+  // const [employeeName, setEmployeeName] = useState(undefined);
+  // const [employeeID, setEmployeeID] = useState(undefined);
+  // const [serviceName, setServiceName] = useState(undefined);
+  // const [servicePrice, setServicePrice] = useState(undefined);
 
   return (
     <Container>
-      <h1>{title}</h1>
-      <div className="appointment-wrapper">
-        <Team
-          trigger={teamActive}
-          setTeamActive={setTeamActive}
-          employeeName={employeeName}
-          employeeID={employeeID}
-          setEmployeeName={setEmployeeName}
-          setEmployeeID={setEmployeeID}
-          setServicesActive={setServicesActive}
-          setTitle={setTitle}
-        />
-        <Services
-          clicker={servicesActive}
-          setServicesActive={setServicesActive}
-          serviceName={serviceName}
-          setServiceName={setServiceName}
-          setDateActive={setDateActive}
-          setTitle={setTitle}
-        />
-        <Date dateActive={dateActive} />
+      <h1>Heading</h1>
+      <div className="shopping-container">
+        {active ? (
+          <div className="professional-wrapper">
+            {Professionals.map((data) => {
+              return (
+                <Professional
+                  key={data.id}
+                  proName={data.name}
+                  proID={data.eNumber}
+                  proImage={data.img}
+                  setActive={setActive}
+                />
+              );
+            })}
+          </div>
+        ) : (
+          <div className="service-wrapper">
+            {Services.map((items) => {
+              return (
+                <Service
+                  key={items.id}
+                  serviceName={items.service}
+                  serviceTime={items.time}
+                  servicePrice={items.price}
+                  setActive={setActive}
+                />
+              );
+            })}
+          </div>
+        )}
         <div className="items-selected">
           <div className="shopping-cart">
             <h2>Your Order</h2>
             <div className="barber-selected">
-              <p>
-                Employee #: <strong>{employeeID}</strong>
-              </p>
-              <p>
-                Professional: <strong>{employeeName}</strong>
-              </p>
-              <p>
-                Service: <strong>{serviceName}</strong>
-              </p>
+              <p>{/* Employee #: <strong>{employeeID}</strong> */}</p>
+              <p>{/* Professional: <strong>{employeeName}</strong> */}</p>
+              <p>{/* Service: <strong>{serviceName}</strong> */}</p>
+              <p>{/* Service Price: <strong>${servicePrice}</strong> */}</p>
             </div>
             <div className="time-div">
               <button>Choose a time</button>
@@ -74,10 +76,14 @@ const Container = styled.div`
     text-align: center;
     padding: 0.6rem 2.5rem;
   }
-  .appointment-wrapper {
+  .shopping-container {
     display: grid;
     grid-template-columns: 70% 30%;
-    overflow: hidden;
+    .professional-wrapper,
+    .service-wrapper {
+      display: grid;
+      grid-template-columns: 25% 25% 25% 25%;
+    }
     .items-selected {
       padding: 1rem;
       .shopping-cart {
@@ -105,3 +111,51 @@ const Container = styled.div`
 `;
 
 export default Appointments;
+
+/* {active ? (
+          <div className="professional-wrapper">
+            {Professionals.map((data) => (
+              <Professional
+                key={data.id}
+                proName={data.name}
+                proID={data.eNumber}
+                proImage={data.img}
+                setEmployeeID={setEmployeeID}
+                setEmployeeName={setEmployeeName}
+                setActive={setActive}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="service-wrapper">
+            {Services.map((data) => (
+              <Service
+                key={data.id}
+                serviceName={data.service}
+                serviceTime={data.time}
+                servicePrice={data.price}
+                setServiceName={setServiceName}
+                setServicePrice={setServicePrice}
+                setActive={setActive}
+              />
+            ))}
+          </div>
+        )} */
+
+/* {date ? <Date /> : <></>} */
+
+// import Date from "../Components/Date";
+// State for Date
+//  const [dateActive, setDateActive] = useState(false);
+/* <Date dateActive={dateActive} /> */
+
+// State for Services
+// const [servicesActive, setServicesActive] = useState(false);
+// const [serviceName, setServiceName] = useState(undefined);
+/* <Services
+  clicker={servicesActive}
+  setServicesActive={setServicesActive}
+  serviceName={serviceName}
+  setServiceName={setServiceName}
+  setDateActive={setDateActive}
+/>; */

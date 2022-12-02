@@ -1,27 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Professional({
-  name,
-  img,
-  number,
-  setENumberSelected,
-  setESelected,
-  setHandleClick,
-}) {
-  const handleClick = () => {
-    setENumberSelected(`${number}`);
-    setESelected(`${name}`);
-    setHandleClick(true);
-    console.log(`Employee ID: ${number}`);
-    console.log(`Employee: ${name} has been selected`);
+export default function Professional(props) {
+  const handleClick = (e) => {
+    e.preventDefault();
+    props.setActive(false);
   };
 
   return (
     <Container>
-      <div className="e-card" id={number} onClick={handleClick}>
-        <div className="portrait">{img}</div>
-        <h2>{name}</h2>
+      <div className="e-card" onClick={handleClick}>
+        <div className="portrait">{props.proImage}</div>
+        <h2>{props.proName}</h2>
       </div>
     </Container>
   );
@@ -29,7 +19,7 @@ export default function Professional({
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: center;
   padding: 1rem;

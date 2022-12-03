@@ -7,7 +7,7 @@ import { EmployeeData } from "../Data/EmployeeData"
 import styled from "styled-components";
 
 function Appointments() {
-
+  // Components State
   const [proActive, setProActive] = useState(true);
   const [serviceActive, setServiceActive] = useState(false);
   const [calendarActive, setCalendarActive] = useState(false)

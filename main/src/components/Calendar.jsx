@@ -23,10 +23,20 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  animation: fadeIn .3s;
   .c-card{
     display: flex
     justify-content: center;
     align-items: center;
     border: solid 0.1rem black;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 `;

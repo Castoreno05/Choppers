@@ -31,6 +31,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  animation: fadeIn 0.5s;
   .s-card {
     cursor: pointer;
     border-radius: 10px;
@@ -51,5 +52,14 @@ const Container = styled.div`
   .s-card:hover {
     background-color: black;
     color: #fff;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 `;

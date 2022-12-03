@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Professional from "../Components/Professional";
 import Service from "../Components/Service";
 import Calendar from "../Components/Calendar";
+import ShoppingCart from "../Components/ShoppingCart";
 import { ServiceData } from "../Data/ServiceData";
 import { EmployeeData } from "../Data/EmployeeData";
 import { format } from "date-fns";
@@ -14,15 +15,18 @@ function Appointments() {
   const [proActive, setProActive] = useState(true);
   const [serviceActive, setServiceActive] = useState(false);
   const [calendarActive, setCalendarActive] = useState(false);
-  // Shopping Cart State
+
+  
+  /*******************SHOPPING CART STATE*********************/
   const [employeeName, setEmployeeName] = useState(undefined);
   const [employeeID, setEmployeeID] = useState(undefined);
   const [serviceName, setServiceName] = useState(undefined);
   const [serviceTime, setServiceTime] = useState(undefined);
   const [servicePrice, setServicePrice] = useState(undefined);
   const [dateSelected, setDateSelected] = useState(undefined);
+  /***********************************************************/
 
-  /****************DATES FOR CALENDAR*************************/
+  /******************DATES FOR CALENDAR***********************/
   const next14Days = [...Array(14).keys()].map((index) => {
     const date = new Date();
     date.setDate(date.getDate() + index);
@@ -79,28 +83,18 @@ function Appointments() {
           </div>
         )}
         <div className="shopping-cart">
-          <h2>Your Order</h2>
-          <div className="barber-selected">
-            <p>
-              Employee #: <strong>{employeeID}</strong>
-            </p>
-            <p>
-              Professional: <strong>{employeeName}</strong>
-            </p>
-            <p>
-              Service: <strong>{serviceName}</strong>
-            </p>
-            <p>
-              Service Price: <strong>${servicePrice}</strong>
-            </p>
-            <p>
-              Service Time: <strong>{serviceTime}</strong>
-            </p>
-            <p>
-              Day Selected: <strong>{dateSelected}</strong>
-            </p>
+          <div className="shopping-wrapper">
+            <h2>Your Order</h2>
+            <ShoppingCart
+              employeeName={employeeName}
+              employeeID={employeeID}
+              serviceName={serviceName}
+              serviceTime={serviceTime}
+              servicePrice={servicePrice}
+              dateSelected={dateSelected}
+            />
           </div>
-          <div className="time-div">
+          <div className="time-reserve">
             <button>Choose a time</button>
           </div>
         </div>
@@ -130,18 +124,16 @@ const Container = styled.div`
     .shopping-cart {
       display: flex;
       flex-direction: column;
-      border: solid 0.1rem black;
-      h2 {
-        text-align: center;
-        padding: 0.5rem;
-      }
-      .barber-selected {
-        p {
-          font-size: 22px;
-          padding: 0.2rem;
+      padding: 2rem;
+      .shopping-wrapper {
+        border: solid 0.1rem black;
+        border-radius: 6px;
+        h2 {
+          text-align: center;
+          padding: 0.5rem;
         }
       }
-      .time-div {
+      .time-reserve {
         display: flex;
         justify-content: center;
         padding: 1rem;

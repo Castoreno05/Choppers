@@ -27,6 +27,7 @@ const Container = styled.div`
   align-items: center;
   text-align: center;
   padding: 1rem;
+  animation: fadeIn 0.5s;
   .e-card {
     box-shadow: 0 0 10px;
     border-radius: 5px;
@@ -49,6 +50,14 @@ const Container = styled.div`
     background-color: black;
     h2 {
       color: white;
+    }
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
 `;

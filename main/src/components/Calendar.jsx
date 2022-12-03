@@ -1,25 +1,32 @@
 import React from "react";
 import styled from "styled-components";
-import { format } from "date-fns";
 
 export default function Calendar(props) {
-  const next14Days = [...Array(14).keys()].map((index) => {
-    const date = new Date();
-    date.setDate(date.getDate() + index);
-    return format(date, "dd");
-  });
-
-  console.log(next14Days);
-
-  const handleClick = () => {
-    "Clicked";
-  };
-
   return (
     <Container>
-      <div onClick={handleClick}>My Div</div>
+      {props.dates.map((data, index) => {
+        return (
+          <div
+            className="c-card"
+            key={index}
+            onClick={(e) => props.setDateSelected(`${data}`)}
+          >
+            <p>{data}</p>
+          </div>
+        );
+      })}
     </Container>
   );
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  .c-card{
+    display: flex
+    justify-content: center;
+    align-items: center;
+    border: solid 0.1rem black;
+  }
+`;

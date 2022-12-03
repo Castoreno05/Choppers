@@ -4,6 +4,7 @@ import styled from "styled-components";
 export default function Service(props) {
   const handleClick = (e) => {
     e.preventDefault();
+    props.setTitle("SELECT AN AVAILABLE DATE");
     props.setServiceName(`${props.serviceName}`);
     props.setServiceTime(`${props.serviceTime}`);
     props.setServicePrice(`${props.servicePrice}`);
@@ -23,7 +24,7 @@ export default function Service(props) {
         </div>
       </div>
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`

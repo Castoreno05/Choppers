@@ -3,28 +3,39 @@ import Professional from "../Components/Professional";
 import Service from "../Components/Service";
 import Calendar from "../Components/Calendar";
 import { ServiceData } from "../Data/ServiceData";
-import { EmployeeData } from "../Data/EmployeeData"
+import { EmployeeData } from "../Data/EmployeeData";
+import { format } from "date-fns";
 import styled from "styled-components";
 
 function Appointments() {
+  // Title State
+  const [title, setTitle] = useState("CHOOSE A PROFESSIONAL");
   // Components State
   const [proActive, setProActive] = useState(true);
   const [serviceActive, setServiceActive] = useState(false);
-  const [calendarActive, setCalendarActive] = useState(false)
+  const [calendarActive, setCalendarActive] = useState(false);
   // Shopping Cart State
   const [employeeName, setEmployeeName] = useState(undefined);
   const [employeeID, setEmployeeID] = useState(undefined);
-  const [serviceName, setServiceName] = useState(undefined)
-  const [serviceTime, setServiceTime] = useState(undefined)
-  const [servicePrice, setServicePrice] = useState(undefined)
+  const [serviceName, setServiceName] = useState(undefined);
+  const [serviceTime, setServiceTime] = useState(undefined);
+  const [servicePrice, setServicePrice] = useState(undefined);
   const [dateSelected, setDateSelected] = useState(undefined);
+
+  /****************DATES FOR CALENDAR*************************/
+  const next14Days = [...Array(14).keys()].map((index) => {
+    const date = new Date();
+    date.setDate(date.getDate() + index);
+    return format(date, "dd");
+  });
+  /***********************************************************/
 
   return (
     <Container>
-      <h1>Heading</h1>
+      <h1>{title}</h1>
       {calendarActive && (
         <div className="date-wrapper">
-          <Calendar setDateSelected={setDateSelected} />
+          <Calendar setDateSelected={setDateSelected} dates={next14Days} />
         </div>
       )}
       <div className="shopping-container">
@@ -38,6 +49,7 @@ function Appointments() {
                   proName={data.name}
                   proID={data.eNumber}
                   proImage={data.img}
+                  setTitle={setTitle}
                   setEmployeeName={setEmployeeName}
                   setEmployeeID={setEmployeeID}
                   setServiceActive={setServiceActive}
@@ -56,31 +68,44 @@ function Appointments() {
                   serviceName={data.service}
                   serviceTime={data.time}
                   servicePrice={data.price}
+                  setTitle={setTitle}
                   setServiceName={setServiceName}
                   setServiceTime={setServiceTime}
                   setServicePrice={setServicePrice}
                   setCalendarActive={setCalendarActive}
                 />
-              )
+              );
             })}
           </div>
         )}
         <div className="shopping-cart">
           <h2>Your Order</h2>
           <div className="barber-selected">
-            <p>Employee #: <strong>{employeeID}</strong></p>
-            <p>Professional: <strong>{employeeName}</strong></p>
-            <p>Service: <strong>{serviceName}</strong></p>
-            <p>Service Price: <strong>${servicePrice}</strong></p>
-            <p>Service Time: <strong>{serviceTime}</strong></p>
-            <p>Day Selected: <strong>{dateSelected}</strong></p>
+            <p>
+              Employee #: <strong>{employeeID}</strong>
+            </p>
+            <p>
+              Professional: <strong>{employeeName}</strong>
+            </p>
+            <p>
+              Service: <strong>{serviceName}</strong>
+            </p>
+            <p>
+              Service Price: <strong>${servicePrice}</strong>
+            </p>
+            <p>
+              Service Time: <strong>{serviceTime}</strong>
+            </p>
+            <p>
+              Day Selected: <strong>{dateSelected}</strong>
+            </p>
           </div>
           <div className="time-div">
             <button>Choose a time</button>
           </div>
         </div>
       </div>
-    </Container >
+    </Container>
   );
 }
 
@@ -103,26 +128,25 @@ const Container = styled.div`
       grid-template-columns: 25% 25% 25% 25%;
     }
     .shopping-cart {
-        display: flex;
-        flex-direction: column;
-        border: solid 0.1rem black;
-        h2 {
-          text-align: center;
-          padding: 0.5rem;
-        }
-        .barber-selected {
-          p {
-            font-size: 22px;
-            padding: 0.2rem;
-          }
-        }
-        .time-div {
-          display: flex;
-          justify-content: center;
-          padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      border: solid 0.1rem black;
+      h2 {
+        text-align: center;
+        padding: 0.5rem;
+      }
+      .barber-selected {
+        p {
+          font-size: 22px;
+          padding: 0.2rem;
         }
       }
-    
+      .time-div {
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+      }
+    }
   }
 `;
 

@@ -9,7 +9,6 @@ export default function Service(props) {
     props.setServiceTime(`${props.serviceTime}`);
     props.setServicePrice(`${props.servicePrice}`);
     props.setCalendarActive(true);
-    // props.setServiceActive(undefined);
   };
 
   return (
@@ -29,7 +28,7 @@ export default function Service(props) {
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   padding: 1rem;
   animation: fadeIn 0.5s;
   .s-card {
@@ -40,6 +39,7 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: space-between;
     height: 150px;
+    width: 150px;
     .service-header {
       padding: 0.5rem;
     }

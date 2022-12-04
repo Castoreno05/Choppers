@@ -24,17 +24,22 @@ export default function Professional(props) {
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
   text-align: center;
-  padding: 1rem;
   animation: fadeIn 0.5s;
+  padding: 1rem;
+  max-height: 90%;
   .e-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.35rem;
+    align-items: center;
     box-shadow: 0 0 10px;
     border-radius: 5px;
+    max-height: 100%;
+    max-width: 85%;
     .portrait {
-      height: 205px;
-      width: 166px;
-      padding: 1rem;
+      max-height: 70%;
       img {
         border-radius: 5px;
         max-width: 100%;
@@ -52,6 +57,7 @@ const Container = styled.div`
       color: white;
     }
   }
+  
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -60,4 +66,16 @@ const Container = styled.div`
       opacity: 1;
     }
   }
+
+  @media screen and (max-width: 1175px) {
+    .e-card {
+      max-width: 75%;
+    }
+  }
+  @media screen and (max-width: 865px){
+    .e-card{
+      max-width: 55%;
+    }
+  }
 `;
+

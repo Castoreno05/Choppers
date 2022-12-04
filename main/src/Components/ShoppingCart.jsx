@@ -30,10 +30,18 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: left;
   padding: 1rem;
   gap: 1rem;
+  max-width: 100%;
   p {
     font-size: 24px;
+    max-width: 100%;
+  }
+
+  @media screen and (max-width: 1175px) {
+    p {
+      font-size: 18px;
+    }
   }
 `;

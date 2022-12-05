@@ -6,22 +6,22 @@ import TimeSlots from "../Components/TimeSlots";
 import ShoppingCart from "../Components/ShoppingCart";
 import {ServiceData} from "../Data/ServiceData";
 import {EmployeeData} from "../Data/EmployeeData";
-import {TimeData} from "../Data/TimeData";
+import {DaySlots} from "../Data/DaySlots";
 import {format} from "date-fns";
 import styled from "styled-components";
 
-function Appointments() { // Title State
+function Appointments() { 
     const [title, setTitle] = useState("CHOOSE A PROFESSIONAL");
-    // Components State
+    /*********************COMPONENT STATE***********************/
     const [proActive, setProActive] = useState(true);
     const [serviceActive, setServiceActive] = useState(false);
     const [calendarActive, setCalendarActive] = useState(false);
     const [timeSlotsActive, setTimeSlotsActive] = useState(false);
     const [triggerButton, setTriggerButton] = useState(false);
+    /***********************************************************/
 
     /*******************SHOPPING CART STATE*********************/
     const [employeeName, setEmployeeName] = useState(undefined);
-    const [employeeID, setEmployeeID] = useState(undefined);
     const [serviceName, setServiceName] = useState(undefined);
     const [serviceTime, setServiceTime] = useState(undefined);
     const [servicePrice, setServicePrice] = useState(undefined);
@@ -35,6 +35,9 @@ function Appointments() { // Title State
         return format(date, "do  EEEE");
     });
     /***********************************************************/
+
+
+    console.log({DaySlots});
 
     const timeSlots = () => {
         setServiceActive(undefined);
@@ -63,15 +66,15 @@ function Appointments() { // Title State
                             proName={
                                 data.name
                             }
-                            proID={
-                                data.eNumber
-                            }
+                            // proID={
+                            //     data.eNumber
+                            // }
                             proImage={
                                 data.img
                             }
                             setTitle={setTitle}
                             setEmployeeName={setEmployeeName}
-                            setEmployeeID={setEmployeeID}
+                            // setEmployeeID={setEmployeeID}
                             setServiceActive={setServiceActive}/>);
                     })
                 } </div>)
@@ -101,15 +104,18 @@ function Appointments() { // Title State
                 } </div>)
             }
                 {
-                timeSlotsActive && (<div className="time-wrapper">
-                    <TimeSlots dateSelected={dateSelected}/>
-                </div>)
+                timeSlotsActive && (<div className="time-wrapper"> {
+                    DaySlots.map((days, index) => {
+                        return (<TimeSlots key={index}
+                            DaySlots={days}/>)
+                    })
+                } </div>)
             } </div>
             <div className="shopping-cart">
                 <div className="shopping-wrapper">
                     <h2>Your Order</h2>
                     <ShoppingCart employeeName={employeeName}
-                        employeeID={employeeID}
+                        // employeeID={employeeID}
                         serviceName={serviceName}
                         serviceTime={serviceTime}
                         servicePrice={servicePrice}
@@ -147,29 +153,50 @@ const Container = styled.div `
 const TheContainer = styled.div `
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
   .shopping-container {
-    max-width: 70%;
-    padding: 0.4rem 2rem;
+    width: 65%;
     .professional-wrapper {
       display: grid;
       grid-template-columns: 33.3% 33.3% 33.3%;
-      align-items: center;
+      position: relative;
+      top: 25px;
     }
     .service-wrapper {
       display: grid;
       grid-template-columns: 25% 25% 25% 25%;
+      align-items: center;
+      position: relative;
+      top: 10px;
+      padding-right: 30px;
+    }
+    .time-wrapper{
+      display: grid;
+      grid-template-columns: 25% 25% 25% 25%;
+      width: 50vw;
+      position: relative;
+      top: 30px;
+      align-items: center;
+      gap: 1rem;
     }
   }
   .shopping-cart {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    position: fixed;
+    left: 65%;
+    top: 25%;
     .shopping-wrapper {
+      width: 350px;
       border: solid 0.1rem black;
       h2 {
         padding: .3rem;
         text-align: center;
       }
+    }
+    button {
+      position: relative;
+      top: 8px;
     }
   }
 
@@ -184,16 +211,13 @@ const TheContainer = styled.div `
   @media screen and (max-width: 975px){
     .shopping-container{
       .service-wrapper{
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 33.3% 33.3% 33.3%;
       }
     }
   }
   @media screen and (max-width: 865px) {
-    grid-template-columns: 100%;
-    overflow-y: scroll;
-    .shopping-cart{
-      position: inherit;
-      padding: 0;
+    .shopping-wrapper{
+      width: 300px !important;;
     }
   }
   @media screen and (max-width: 500px){

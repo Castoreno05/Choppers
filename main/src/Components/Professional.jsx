@@ -6,7 +6,6 @@ export default function Professional(props) {
     e.preventDefault();
     props.setTitle("CHOOSE A SERVICE");
     props.setEmployeeName(`${props.proName}`);
-    props.setEmployeeID(`${props.proID}`);
     props.setServiceActive(true);
     props.setProActive(undefined);
   };
@@ -36,9 +35,9 @@ const Container = styled.div`
     box-shadow: 0 0 10px;
     border-radius: 5px;
     max-height: 100%;
-    max-width: 80%;
+    max-width: 60%;
     .portrait {
-      max-height: 70%;
+      max-height: 80%;
       img {
         border-radius: 5px;
         max-width: 100%;

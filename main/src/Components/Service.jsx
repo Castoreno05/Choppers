@@ -19,7 +19,7 @@ export default function Service(props) {
           <p>{props.serviceTime}</p>
         </div>
         <div className="price">
-          <p>${props.servicePrice}</p>
+          <p>{props.servicePrice}</p>
         </div>
       </div>
     </Container>

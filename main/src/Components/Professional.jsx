@@ -67,7 +67,7 @@ const Container = styled.div`
 
   @media screen and (max-width: 1175px) {
     .e-card {
-      max-width: 75%;
+      max-width: 60%;
     }
   }
   @media screen and (max-width: 865px){

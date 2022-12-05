@@ -17,20 +17,17 @@ export default function Calendar(props) {
 
 const Container = styled.div `
   display: grid;
-  grid-template-columns: 14% 14% 14% 14% 14% 10% 14%;
-  gap: 1.2rem;
-  align-items: center;
+  grid-template-columns: 25% 25% 25% 25%;
   justify-content: center;
   animation: fadeIn .3s;
   padding: 0.5rem;
+  height: 20vh;
+  gap: 0.5rem;
   // border: solid 0.1rem black;
   .c-card{
-    display: flex
-    justify-content: center;
-    align-items: center;
-    max-width: 65%;
     cursor: pointer;
     p{
+      width: 95px;
       text-align: center;
     }
   }

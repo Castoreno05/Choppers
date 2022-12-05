@@ -31,6 +31,8 @@ const Container = styled.div`
   justify-content: center;
   padding: 1rem;
   animation: fadeIn 0.5s;
+  height: 30vh;
+  align-items: center;
   .s-card {
     cursor: pointer;
     border-radius: 10px;

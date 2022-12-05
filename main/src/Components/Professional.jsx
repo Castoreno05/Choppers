@@ -26,7 +26,6 @@ const Container = styled.div`
   justify-content: center;
   text-align: center;
   animation: fadeIn 0.5s;
-  padding: 1rem;
   max-height: 90%;
   .e-card {
     display: flex;

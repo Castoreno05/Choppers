@@ -31,11 +31,11 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: left;
-  padding: 1rem;
-  gap: 1rem;
+  padding: 0.3rem;
+  gap: 0.5rem;
   max-width: 100%;
   p {
-    font-size: 24px;
+    font-size: 18px;
     max-width: 100%;
   }
 

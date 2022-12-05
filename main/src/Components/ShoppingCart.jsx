@@ -33,7 +33,7 @@ const Container = styled.div`
   align-items: left;
   padding: 0.3rem;
   gap: 0.5rem;
-  max-width: 100%;
+  width: 400px;
   p {
     font-size: 18px;
     max-width: 100%;

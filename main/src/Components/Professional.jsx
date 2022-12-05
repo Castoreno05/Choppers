@@ -26,7 +26,7 @@ const Container = styled.div`
   justify-content: center;
   text-align: center;
   animation: fadeIn 0.5s;
-  max-height: 90%;
+  max-height: 80%;
   .e-card {
     display: flex;
     flex-direction: column;
@@ -36,7 +36,7 @@ const Container = styled.div`
     box-shadow: 0 0 10px;
     border-radius: 5px;
     max-height: 100%;
-    max-width: 85%;
+    max-width: 80%;
     .portrait {
       max-height: 70%;
       img {

@@ -128,7 +128,6 @@ const Container = styled.div `
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
   padding: 1.5rem;
   gap: 1rem;
   h1 {
@@ -146,16 +145,16 @@ const Container = styled.div `
 `;
 
 const TheContainer = styled.div `
-  display: grid;
-  grid-template-columns: 70% 30%;
-  width: 100%;
-  overflow: hidden;
-  overflow-y: scroll;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   .shopping-container {
+    max-width: 70%;
     padding: 0.4rem 2rem;
     .professional-wrapper {
       display: grid;
       grid-template-columns: 33.3% 33.3% 33.3%;
+      align-items: center;
     }
     .service-wrapper {
       display: grid;
@@ -163,10 +162,8 @@ const TheContainer = styled.div `
     }
   }
   .shopping-cart {
-    padding: 0.4rem 3rem;
-    position: fixed;
-    left: 65%;
-    right: 2%;
+    display: flex;
+    flex-direction: row;
     .shopping-wrapper {
       border: solid 0.1rem black;
       h2 {

@@ -16,7 +16,7 @@ const Container = styled.div`
 	gap: 2rem;
 	align-items: center;
 	width: 60%;
-	height: 82vh;
+	height: 85vh;
 	h1 {
 		padding: .5rem;
 		border-bottom: solid 0.1rem black;

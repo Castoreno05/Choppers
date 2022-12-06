@@ -2,29 +2,20 @@ import React from "react";
 import styled from "styled-components";
 
 export default function TimeSlots(props) {
-    const handleClick = (e) => {
-        e.preventDefault();
-        props.setTimeSelected(`${
-            props.DaySlots
-        }`);
-        props.setTimeSlotsActive(false);
-        props.setShoppingActive(false);
-        props.setContainerActive(false);
-        props.setOverviewActive(true);
-        props.setTitle("APPOINTMENT OVERVIEW");
-    };
+	const handleClick = (e) => {
+		e.preventDefault();
+		props.setTimeSelected(`${props.DaySlots}`);
+		props.setConfirmTime(true);
+	};
 
-    return (
-        <Container>
-            <p onClick={handleClick}>
-                {
-                props.DaySlots
-            }</p>
-        </Container>
-    );
+	return (
+		<Container>
+			<p onClick={handleClick}>{props.DaySlots}</p>
+		</Container>
+	);
 }
 
-const Container = styled.div `
+const Container = styled.div`
 	display: flex;
 	justify-content: center;
 	height: 25vh;

@@ -11,7 +11,7 @@ export default function Calendar(props) {
 						className="c-card"
 						key={index}
 						onClick={(e) =>
-							props.setDateSelected(`${data}`) & props.setTriggerButton(true)
+							props.setDateSelected(`${data}`) & props.setConfirmDate(true)
 						}
 					>
 						<p> {data}</p>
@@ -27,12 +27,12 @@ const Container = styled.div`
 	grid-template-columns: 33.3% 33.3% 33.3%;
 	animation: fadeIn 0.3s;
 	justify-content: start;
-	gap: 0.5rem;
+	gap: 1.5rem;
 	.c-card {
 		cursor: pointer;
 		p {
 			border: solid 0.1rem black;
-			box-shadow: 0 0 10px #ba0d16;
+			box-shadow: 0 0 5px #ba0d16;
 			border-radius: 5px;
 			text-align: center;
 		}

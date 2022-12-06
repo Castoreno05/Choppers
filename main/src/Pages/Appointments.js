@@ -1,187 +1,180 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Overview from "../Components/Overview";
 import Professional from "../Components/Professional";
 import Service from "../Components/Service";
 import Calendar from "../Components/Calendar";
 import TimeSlots from "../Components/TimeSlots";
 import ShoppingCart from "../Components/ShoppingCart";
-import {ServiceData} from "../Data/ServiceData";
-import {EmployeeData} from "../Data/EmployeeData";
-import {DaySlots} from "../Data/DaySlots";
-import {format} from "date-fns";
+import { ServiceData } from "../Data/ServiceData";
+import { EmployeeData } from "../Data/EmployeeData";
+import { DaySlots } from "../Data/DaySlots";
+import { format } from "date-fns";
 import styled from "styled-components";
 
 function Appointments() {
-    const [title, setTitle] = useState("CHOOSE A PROFESSIONAL");
-    /*********************COMPONENT STATE***********************/
-    const [containerActive, setContainerActive] = useState(true);
-    const [shoppingActive, setShoppingActive] = useState(true);
-    const [proActive, setProActive] = useState(true);
-    const [serviceActive, setServiceActive] = useState(false);
-    const [calendarActive, setCalendarActive] = useState(false);
-    const [triggerButton, setTriggerButton] = useState(false);
-    const [timeSlotsActive, setTimeSlotsActive] = useState(false);
-    const [overviewActive, setOverviewActive] = useState(false);
-    /***********************************************************/
+	const [title, setTitle] = useState("CHOOSE A PROFESSIONAL");
+	/*********************COMPONENT STATE***********************/
+	const [containerActive, setContainerActive] = useState(true);
+	const [shoppingActive, setShoppingActive] = useState(true);
+	const [proActive, setProActive] = useState(true);
+	const [serviceActive, setServiceActive] = useState(false);
+	const [calendarActive, setCalendarActive] = useState(false);
+	const [confirmDate, setConfirmDate] = useState(false);
+	const [timeSlotsActive, setTimeSlotsActive] = useState(false);
+	const [confirmTime, setConfirmTime] = useState(false);
+	const [overviewActive, setOverviewActive] = useState(false);
+	/***********************************************************/
 
-    /*******************SHOPPING CART STATE*********************/
-    const [employeeName, setEmployeeName] = useState(undefined);
-    const [serviceName, setServiceName] = useState(undefined);
-    const [serviceTime, setServiceTime] = useState(undefined);
-    const [servicePrice, setServicePrice] = useState(undefined);
-    const [dateSelected, setDateSelected] = useState(undefined);
-    const [timeSelected, setTimeSelected] = useState(undefined);
-    /***********************************************************/
+	/*******************SHOPPING CART STATE*********************/
+	const [employeeName, setEmployeeName] = useState(undefined);
+	const [serviceName, setServiceName] = useState(undefined);
+	const [serviceTime, setServiceTime] = useState(undefined);
+	const [servicePrice, setServicePrice] = useState(undefined);
+	const [dateSelected, setDateSelected] = useState(undefined);
+	const [timeSelected, setTimeSelected] = useState(undefined);
+	/***********************************************************/
 
-    /******************DATES FOR CALENDAR***********************/
-    const next10Days = [...Array(12).keys()].map((index) => {
-        const date = new Date();
-        date.setDate(date.getDate() + index);
-        return format(date, "MMM do, EEE");
-    });
-    /***********************************************************/
+	/******************DATES FOR CALENDAR***********************/
+	const next10Days = [...Array(12).keys()].map((index) => {
+		const date = new Date();
+		date.setDate(date.getDate() + index);
+		return format(date, "MMM do, EEE");
+	});
+	/***********************************************************/
 
-    const timeSlots = () => {
-        setServiceActive(undefined);
-        setCalendarActive(undefined);
-        setTriggerButton(undefined);
-        setTitle("SELECT AN AVAILABLE TIME");
-        setTimeSlotsActive(true);
-    };
+	const timeSlots = () => {
+		setServiceActive(undefined);
+		setCalendarActive(undefined);
+		setConfirmDate(undefined);
+		setTitle("SELECT AN AVAILABLE TIME");
+		setTimeSlotsActive(true);
+	};
+	const overview = () => {
+		setTimeSlotsActive(false);
+		setShoppingActive(false);
+		setContainerActive(false);
+		setOverviewActive(true);
+		setTitle("APPOINTMENT OVERVIEW");
+	};
 
-    return (
-        <Container> {/* <h1> {title}</h1> */}
-            <TheContainer> {
-                overviewActive && (
-                    <div className="overview-container">
-                        <Overview/>
-                    </div>
-                )
-            }
-                {
-                containerActive && (
-                    <div className="shopping-container">
-                        {" "}
-                        {
-                        proActive && (
-                            <div className="professional-wrapper">
-                                {" "}
-                                {
-                                EmployeeData.map((data) => {
-                                    return (
-                                        <Professional setProActive={setProActive}
-                                            key={
-                                                data.id
-                                            }
-                                            proName={
-                                                data.name
-                                            }
-                                            // proID={data.eNumber}
-                                            proImage={
-                                                data.img
-                                            }
-                                            setTitle={setTitle}
-                                            setEmployeeName={setEmployeeName}
-                                            // setEmployeeID={setEmployeeID}
-                                            setServiceActive={setServiceActive}/>
-                                    );
-                                })
-                            }
-                                {" "} </div>
-                        )
-                    }
-                        {
-                        serviceActive && (
-                            <div className="service-wrapper">
-                                {" "}
-                                {
-                                ServiceData.map((data) => {
-                                    return (
-                                        <Service setServiceActive={setServiceActive}
-                                            key={
-                                                data.id
-                                            }
-                                            serviceName={
-                                                data.service
-                                            }
-                                            serviceTime={
-                                                data.time
-                                            }
-                                            servicePrice={
-                                                data.price
-                                            }
-                                            setTitle={setTitle}
-                                            setServiceName={setServiceName}
-                                            setServiceTime={setServiceTime}
-                                            setServicePrice={setServicePrice}
-                                            setCalendarActive={setCalendarActive}/>
-                                    );
-                                })
-                            }
-                                {" "} </div>
-                        )
-                    }
-                        {
-                        timeSlotsActive && (
-                            <div className="time-wrapper">
-                                {" "}
-                                {
-                                DaySlots.map((days, index) => {
-                                    return (
-                                        <TimeSlots key={index}
-                                            DaySlots={days}
-                                            setTimeSelected={setTimeSelected}
-                                            setContainerActive={setContainerActive}
-                                            setTimeSlotsActive={setTimeSlotsActive}
-                                            setShoppingActive={setShoppingActive}
-                                            setOverviewActive={setOverviewActive}
-                                            setTitle={setTitle}/>
-
-                                    );
-                                })
-                            }
-                                {" "} </div>
-                        )
-                    }
-                        {" "} </div>
-                )
-            }
-                {
-                calendarActive && (
-                    <div className="date-wrapper">
-                        <Calendar setDateSelected={setDateSelected}
-                            dates={next10Days}
-                            setTriggerButton={setTriggerButton}/>
-                    </div>
-                )
-            }
-                {
-                shoppingActive && (
-                    <div className="shopping-cart">
-                        <h1>{title}</h1>
-                        <div className="shopping-wrapper">
-                            <h2>Your Order</h2>
-                            <ShoppingCart employeeName={employeeName}
-                                serviceName={serviceName}
-                                serviceTime={serviceTime}
-                                servicePrice={servicePrice}
-                                dateSelected={dateSelected}
-                                timeSelected={timeSelected}/> {
-                            triggerButton && (
-                                <div className="time-reserve">
-                                    <button onClick={timeSlots}>Confirm Date Selected</button>
-                                </div>
-                            )
-                        }
-                            {" "} </div>
-                    </div>
-                )
-            } </TheContainer>
-        </Container>
-    );
+	return (
+		<Container>
+			{" "}
+			{/* <h1> {title}</h1> */}
+			<TheContainer>
+				{" "}
+				{overviewActive && (
+					<div className="overview-container">
+						<Overview />
+					</div>
+				)}
+				{containerActive && (
+					<div className="shopping-container">
+						{" "}
+						{proActive && (
+							<div className="professional-wrapper">
+								{" "}
+								{EmployeeData.map((data) => {
+									return (
+										<Professional
+											setProActive={setProActive}
+											key={data.id}
+											proName={data.name}
+											// proID={data.eNumber}
+											proImage={data.img}
+											setTitle={setTitle}
+											setEmployeeName={setEmployeeName}
+											// setEmployeeID={setEmployeeID}
+											setServiceActive={setServiceActive}
+										/>
+									);
+								})}{" "}
+							</div>
+						)}
+						{serviceActive && (
+							<div className="service-wrapper">
+								{" "}
+								{ServiceData.map((data) => {
+									return (
+										<Service
+											setServiceActive={setServiceActive}
+											key={data.id}
+											serviceName={data.service}
+											serviceTime={data.time}
+											servicePrice={data.price}
+											setTitle={setTitle}
+											setServiceName={setServiceName}
+											setServiceTime={setServiceTime}
+											setServicePrice={setServicePrice}
+											setCalendarActive={setCalendarActive}
+										/>
+									);
+								})}{" "}
+							</div>
+						)}
+						{timeSlotsActive && (
+							<div className="time-wrapper">
+								{" "}
+								{DaySlots.map((days, index) => {
+									return (
+										<TimeSlots
+											key={index}
+											DaySlots={days}
+											setTimeSelected={setTimeSelected}
+											setContainerActive={setContainerActive}
+											setTimeSlotsActive={setTimeSlotsActive}
+											setShoppingActive={setShoppingActive}
+											setOverviewActive={setOverviewActive}
+											setConfirmTime={setConfirmTime}
+											setTitle={setTitle}
+										/>
+									);
+								})}{" "}
+							</div>
+						)}{" "}
+					</div>
+				)}
+				{calendarActive && (
+					<div className="date-wrapper">
+						<Calendar
+							setDateSelected={setDateSelected}
+							dates={next10Days}
+							setConfirmDate={setConfirmDate}
+						/>
+					</div>
+				)}
+				{shoppingActive && (
+					<div className="shopping-cart">
+						<h1>{title}</h1>
+						<div className="shopping-wrapper">
+							<h2>Your Order</h2>
+							<ShoppingCart
+								employeeName={employeeName}
+								serviceName={serviceName}
+								serviceTime={serviceTime}
+								servicePrice={servicePrice}
+								dateSelected={dateSelected}
+								timeSelected={timeSelected}
+							/>{" "}
+							{confirmDate && (
+								<div className="confirm-date">
+									<button onClick={timeSlots}>Confirm Date Selected</button>
+								</div>
+							)}{" "}
+							{confirmTime && (
+								<div className="confirm-time">
+									<button onClick={overview}>Confirm Time Selected</button>
+								</div>
+							)}
+						</div>
+					</div>
+				)}{" "}
+			</TheContainer>
+		</Container>
+	);
 }
 
-const Container = styled.div `
+const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -193,7 +186,7 @@ const Container = styled.div `
 	}
 `;
 
-const TheContainer = styled.div `
+const TheContainer = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
@@ -219,9 +212,8 @@ const TheContainer = styled.div `
 	.date-wrapper {
 		padding: 0.2rem;
 		position: fixed;
-		width: 28%;
-		left: 65%;
-		top: 55%;
+		left: 70%;
+		top: 53%;
 	}
 	.shopping-cart {
 		display: flex;
@@ -231,25 +223,25 @@ const TheContainer = styled.div `
 		left: 67.5%;
 		top: 20%;
 		width: 25%;
-		gap: .8rem;
+		gap: 0.8rem;
 		h1 {
-            text-align: center;
-			font-size: 20px;
+			text-align: center;
+			font-size: 24px;
 			border-bottom: solid black 0.1rem;
-            animation: fadeIn .5s;
+			animation: fadeIn 0.5s;
 		}
 		.shopping-wrapper {
-            animation: fadeIn .5s;
+			animation: fadeIn 0.5s;
 			width: 100%;
 			border: solid 0.09rem #ba0d16;
-			box-shadow: 0 0 20px #ba0d16;
+			box-shadow: 0 0 12px #ba0d16;
 			border-radius: 5px;
 			h2 {
-                font-size: 18px;
+				font-size: 18px;
 				padding: 0.2rem;
 				text-align: center;
 			}
-			.time-reserve {
+			.confirm-date, .confirm-time {
 				display: flex;
 				justify-content: center;
 				padding: 0.3rem;
@@ -266,7 +258,6 @@ const TheContainer = styled.div `
 				}
 			}
 		}
-		
 	}
 	.overview-container {
 		display: flex;
@@ -274,14 +265,14 @@ const TheContainer = styled.div `
 		width: 100%;
 	}
 
-    @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
 
 	@media screen and (max-width: 1175px) {
 		.shopping-container {

@@ -29,7 +29,7 @@ export default function ShoppingCart(props) {
 				</span>
 			</div>
 			<div className="shopping-items">
-				<p>Day Selected:</p>
+				<p>Date Selected:</p>
 				<span>
 					<strong> {props.dateSelected}</strong>
 				</span>

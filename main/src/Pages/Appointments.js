@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import Calendar from "../Components/Calendar";
+import Overview from "../Components/Overview";
 import Professional from "../Components/Professional";
 import Service from "../Components/Service";
+import Calendar from "../Components/Calendar";
 import TimeSlots from "../Components/TimeSlots";
 import ShoppingCart from "../Components/ShoppingCart";
 import { ServiceData } from "../Data/ServiceData";
@@ -53,7 +54,7 @@ function Appointments() {
 			<TheContainer>
 				{overviewActive && (
 					<div className="overview-container">
-						<h1>Overview</h1>
+						<Overview />
 					</div>
 				)}
 				{containerActive && (
@@ -163,8 +164,6 @@ const Container = styled.div`
 	gap: 1rem;
 	h1 {
 		text-align: center;
-		padding: 0rem 1rem;
-		max-width: 100%;
 	}
 	@media screen and (max-width: 745px) {
 		gap: 1rem;
@@ -220,6 +219,11 @@ const TheContainer = styled.div`
 			position: relative;
 			top: 8px;
 		}
+	}
+	.overview-container {
+		display: flex;
+		justify-content: center;
+		width: 100%;
 	}
 
 	@media screen and (max-width: 1175px) {

@@ -106,10 +106,6 @@
   bottom: 2%;
 }
 
-span {
-  margin-left: 16px;
-}
-
 @keyframes animate {
   0%,
   18%,

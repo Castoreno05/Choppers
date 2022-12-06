@@ -228,20 +228,24 @@ const TheContainer = styled.div `
 		flex-direction: column;
 		align-items: center;
 		position: fixed;
-		left: 67%;
-		top: 22%;
+		left: 67.5%;
+		top: 20%;
 		width: 25%;
 		gap: .8rem;
 		h1 {
+            text-align: center;
 			font-size: 20px;
 			border-bottom: solid black 0.1rem;
+            animation: fadeIn .5s;
 		}
 		.shopping-wrapper {
+            animation: fadeIn .5s;
 			width: 100%;
 			border: solid 0.09rem #ba0d16;
 			box-shadow: 0 0 20px #ba0d16;
 			border-radius: 5px;
 			h2 {
+                font-size: 18px;
 				padding: 0.2rem;
 				text-align: center;
 			}
@@ -269,6 +273,15 @@ const TheContainer = styled.div `
 		justify-content: center;
 		width: 100%;
 	}
+
+    @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
 
 	@media screen and (max-width: 1175px) {
 		.shopping-container {

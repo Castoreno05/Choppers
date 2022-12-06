@@ -2,9 +2,18 @@ import React from "react";
 import styled from "styled-components";
 
 export default function TimeSlots(props) {
+	const handleClick = (e) => {
+		e.preventDefault();
+		props.setTimeSelected(`${props.DaySlots}`);
+		props.setTimeSlotsActive(false);
+		props.setShoppingActive(false);
+		props.setContainerActive(false);
+		props.setOverviewActive(true);
+	};
+
 	return (
 		<Container>
-			<p> {props.DaySlots} </p>
+			<p onClick={handleClick}>{props.DaySlots}</p>
 		</Container>
 	);
 }
@@ -23,14 +32,14 @@ const Container = styled.div`
 		height: 40px;
 		width: 150px;
 	}
-  p:hover {
-    cursor: pointer;
-    background-color: black;
-    color: #fff;
-  }
-  @media screen and (max-width: 1175px) {
-    p {
-      width: 80px;
-    }
-  }
+	p:hover {
+		cursor: pointer;
+		background-color: black;
+		color: #fff;
+	}
+	@media screen and (max-width: 1175px) {
+		p {
+			width: 80px;
+		}
+	}
 `;

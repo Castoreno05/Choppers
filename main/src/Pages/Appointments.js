@@ -13,19 +13,23 @@ import styled from "styled-components";
 function Appointments() {
 	const [title, setTitle] = useState("CHOOSE A PROFESSIONAL");
 	/*********************COMPONENT STATE***********************/
+	const [triggerButton, setTriggerButton] = useState(false);
+	const [containerActive, setContainerActive] = useState(true);
 	const [proActive, setProActive] = useState(true);
 	const [serviceActive, setServiceActive] = useState(false);
 	const [calendarActive, setCalendarActive] = useState(false);
 	const [timeSlotsActive, setTimeSlotsActive] = useState(false);
-	const [triggerButton, setTriggerButton] = useState(false);
+	const [overviewActive, setOverviewActive] = useState(false);
 	/***********************************************************/
 
 	/*******************SHOPPING CART STATE*********************/
+	const [shoppingActive, setShoppingActive] = useState(true);
 	const [employeeName, setEmployeeName] = useState(undefined);
 	const [serviceName, setServiceName] = useState(undefined);
 	const [serviceTime, setServiceTime] = useState(undefined);
 	const [servicePrice, setServicePrice] = useState(undefined);
 	const [dateSelected, setDateSelected] = useState(undefined);
+	const [timeSelected, setTimeSelected] = useState(undefined);
 	/***********************************************************/
 
 	/******************DATES FOR CALENDAR***********************/
@@ -35,8 +39,6 @@ function Appointments() {
 		return format(date, "MMM, do EEEE");
 	});
 	/***********************************************************/
-
-	console.log({ DaySlots });
 
 	const timeSlots = () => {
 		setServiceActive(undefined);
@@ -49,63 +51,75 @@ function Appointments() {
 		<Container>
 			<h1> {title}</h1>
 			<TheContainer>
-				<div className="shopping-container">
-					{" "}
-					{proActive && (
-						<div className="professional-wrapper">
-							{" "}
-							{EmployeeData.map((data) => {
-								return (
-									<Professional
-										setProActive={setProActive}
-										key={data.id}
-										proName={data.name}
-										// proID={data.eNumber}
-										proImage={data.img}
-										setTitle={setTitle}
-										setEmployeeName={setEmployeeName}
-										// setEmployeeID={setEmployeeID}
-										setServiceActive={setServiceActive}
-									/>
-								);
-							})}{" "}
-						</div>
-					)}
-					{serviceActive && (
-						<div className="service-wrapper">
-							{" "}
-							{ServiceData.map((data) => {
-								return (
-									<Service
-										setServiceActive={setServiceActive}
-										key={data.id}
-										serviceName={data.service}
-										serviceTime={data.time}
-										servicePrice={data.price}
-										setTitle={setTitle}
-										setServiceName={setServiceName}
-										setServiceTime={setServiceTime}
-										setServicePrice={setServicePrice}
-										setCalendarActive={setCalendarActive}
-									/>
-								);
-							})}{" "}
-						</div>
-					)}
-					{timeSlotsActive && (
-						<div className="time-wrapper">
-							{" "}
-							{DaySlots.map((days, index) => {
-								return (
-									<TimeSlots
-										key={index}
-										DaySlots={days}
-									/>
-								);
-							})}{" "}
-						</div>
-					)}{" "}
-				</div>
+				{overviewActive && (
+					<div className="overview-container">
+						<h1>Overview</h1>
+					</div>
+				)}
+				{containerActive && (
+					<div className="shopping-container">
+						{" "}
+						{proActive && (
+							<div className="professional-wrapper">
+								{" "}
+								{EmployeeData.map((data) => {
+									return (
+										<Professional
+											setProActive={setProActive}
+											key={data.id}
+											proName={data.name}
+											// proID={data.eNumber}
+											proImage={data.img}
+											setTitle={setTitle}
+											setEmployeeName={setEmployeeName}
+											// setEmployeeID={setEmployeeID}
+											setServiceActive={setServiceActive}
+										/>
+									);
+								})}{" "}
+							</div>
+						)}
+						{serviceActive && (
+							<div className="service-wrapper">
+								{" "}
+								{ServiceData.map((data) => {
+									return (
+										<Service
+											setServiceActive={setServiceActive}
+											key={data.id}
+											serviceName={data.service}
+											serviceTime={data.time}
+											servicePrice={data.price}
+											setTitle={setTitle}
+											setServiceName={setServiceName}
+											setServiceTime={setServiceTime}
+											setServicePrice={setServicePrice}
+											setCalendarActive={setCalendarActive}
+										/>
+									);
+								})}{" "}
+							</div>
+						)}
+						{timeSlotsActive && (
+							<div className="time-wrapper">
+								{" "}
+								{DaySlots.map((days, index) => {
+									return (
+										<TimeSlots
+											key={index}
+											DaySlots={days}
+											setTimeSelected={setTimeSelected}
+											setContainerActive={setContainerActive}
+											setTimeSlotsActive={setTimeSlotsActive}
+											setShoppingActive={setShoppingActive}
+											setOverviewActive={setOverviewActive}
+										/>
+									);
+								})}{" "}
+							</div>
+						)}{" "}
+					</div>
+				)}
 				{calendarActive && (
 					<div className="date-wrapper">
 						<Calendar
@@ -115,24 +129,27 @@ function Appointments() {
 						/>
 					</div>
 				)}
-				<div className="shopping-cart">
-					<div className="shopping-wrapper">
-						<h2>Your Order</h2>
-						<ShoppingCart
-							employeeName={employeeName}
-							// employeeID={employeeID}
-							serviceName={serviceName}
-							serviceTime={serviceTime}
-							servicePrice={servicePrice}
-							dateSelected={dateSelected}
-						/>
-					</div>
-					{triggerButton && (
-						<div className="time-reserve">
-							<button onClick={timeSlots}>Choose a time</button>
+				{shoppingActive && (
+					<div className="shopping-cart">
+						<div className="shopping-wrapper">
+							<h2>Your Order</h2>
+							<ShoppingCart
+								employeeName={employeeName}
+								// employeeID={employeeID}
+								serviceName={serviceName}
+								serviceTime={serviceTime}
+								servicePrice={servicePrice}
+								dateSelected={dateSelected}
+								timeSelected={timeSelected}
+							/>
 						</div>
-					)}{" "}
-				</div>
+						{triggerButton && (
+							<div className="time-reserve">
+								<button onClick={timeSlots}>Choose a time</button>
+							</div>
+						)}{" "}
+					</div>
+				)}
 			</TheContainer>
 		</Container>
 	);

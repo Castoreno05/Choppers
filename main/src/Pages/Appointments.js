@@ -13,17 +13,17 @@ import styled from "styled-components";
 function Appointments() {
 	const [title, setTitle] = useState("CHOOSE A PROFESSIONAL");
 	/*********************COMPONENT STATE***********************/
-	const [triggerButton, setTriggerButton] = useState(false);
 	const [containerActive, setContainerActive] = useState(true);
+	const [shoppingActive, setShoppingActive] = useState(true);
 	const [proActive, setProActive] = useState(true);
 	const [serviceActive, setServiceActive] = useState(false);
 	const [calendarActive, setCalendarActive] = useState(false);
+	const [triggerButton, setTriggerButton] = useState(false);
 	const [timeSlotsActive, setTimeSlotsActive] = useState(false);
 	const [overviewActive, setOverviewActive] = useState(false);
 	/***********************************************************/
 
 	/*******************SHOPPING CART STATE*********************/
-	const [shoppingActive, setShoppingActive] = useState(true);
 	const [employeeName, setEmployeeName] = useState(undefined);
 	const [serviceName, setServiceName] = useState(undefined);
 	const [serviceTime, setServiceTime] = useState(undefined);
@@ -177,7 +177,6 @@ const TheContainer = styled.div`
 	flex-direction: row;
 	justify-content: flex-start;
 	width: 100%;
-
 	.shopping-container {
 		width: 65%;
 		padding: 1rem;
@@ -195,6 +194,11 @@ const TheContainer = styled.div`
 			grid-template-columns: 25% 25% 25% 25%;
 			align-items: center;
 		}
+	}
+	.date-wrapper {
+		position: fixed;
+		left: 69%;
+		top: 51%;
 	}
 	.shopping-cart {
 		display: flex;
@@ -216,11 +220,6 @@ const TheContainer = styled.div`
 			position: relative;
 			top: 8px;
 		}
-	}
-	.date-wrapper {
-		position: fixed;
-		left: 69%;
-		top: 51%;
 	}
 
 	@media screen and (max-width: 1175px) {

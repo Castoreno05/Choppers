@@ -50,6 +50,12 @@ const ServiceData = [
         time: "30 min",
         price: '$75',
         description: ""
+    }, {
+        id: 9,
+        service: "Haircut and Full Shave",
+        time: "1 hr",
+        price: '$100',
+        description: ""
     }
 ];
 

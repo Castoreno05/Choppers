@@ -24,18 +24,21 @@ export default function Calendar(props) {
 
 const Container = styled.div`
 	display: grid;
-	grid-template-columns: 25% 25% 25% 25%;
-	justify-content: center;
+	grid-template-columns: 33.3% 33.3% 33.3%;
 	animation: fadeIn 0.3s;
-	padding: 0.5rem;
-	height: 20vh;
+	justify-content: start;
 	gap: 0.5rem;
-	// border: solid 0.1rem black;
 	.c-card {
 		cursor: pointer;
 		p {
-			width: 95px;
+			border: solid 0.1rem black;
+			box-shadow: 0 0 10px #ba0d16;
+			border-radius: 5px;
 			text-align: center;
+		}
+		p:hover {
+			background-color: #000100;
+			color: whitesmoke;
 		}
 	}
 	@keyframes fadeIn {

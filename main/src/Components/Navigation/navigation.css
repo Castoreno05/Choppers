@@ -43,7 +43,7 @@
 }
 .close:hover {
   border-radius: 4px;
-  background-color: #00308f;
+  background-color: #000100;
 }
 .chop-menu {
   background-color: #ba0d16;
@@ -85,7 +85,7 @@
 }
 
 .nav-text a:hover {
-  background-color: #00308f;
+  background-color: #000100;
 }
 
 .chop-menu-items {

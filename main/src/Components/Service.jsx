@@ -37,6 +37,7 @@ const Container = styled.div`
     cursor: pointer;
     border-radius: 10px;
     border: solid 0.1rem black;
+    box-shadow: 0 0 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -34,12 +34,12 @@ export default function ShoppingCart(props) {
 					<strong> {props.dateSelected}</strong>
 				</span>
 			</div>
-			<div className="shopping-items">
+			{/* <div className="shopping-items">
 				<p>Time Selected:</p>
 				<span>
 					<strong> {props.timeSelected}</strong>
 				</span>
-			</div>
+			</div> */}
 		</Container>
 	);
 }

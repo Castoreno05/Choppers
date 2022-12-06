@@ -85,7 +85,7 @@ const Container = styled.div`
   //   0 0 80px #ba0d16, 0 0 160px #ba0d16;
   background-color: #000100;
   display: grid;
-  padding: 1.5rem;
+  padding: .5rem;
   grid-template-columns: 33% 33% 33%;
   .left-container {
     display: grid;

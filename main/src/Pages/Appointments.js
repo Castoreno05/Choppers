@@ -214,7 +214,7 @@ const TheContainer = styled.div`
 		padding: 0.2rem;
 		position: fixed;
 		left: 68.5%;
-		top: 53%;
+		top: 51%;
 	}
 	.shopping-cart {
 		display: flex;
@@ -224,10 +224,10 @@ const TheContainer = styled.div`
 		left: 67.5%;
 		top: 16%;
 		width: 25%;
-		gap: 0.8rem;
+		gap: 1rem;
 		h1 {
 			text-align: center;
-			font-size: 24px;
+			font-size: 20px;
 			border-bottom: solid black 0.1rem;
 			animation: fadeIn 0.5s;
 		}

@@ -58,7 +58,8 @@ const Container = styled.div`
 	}
 	@media screen and (max-width: 975px) {
 		.c-card {
-			width: 200px;
+			width: 40px;
 		}
 	}
+	// Need media query 867px
 `;

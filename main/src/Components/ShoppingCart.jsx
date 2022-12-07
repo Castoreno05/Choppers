@@ -72,7 +72,7 @@ const Container = styled.div`
 			font-size: 18px !important;
 		}
 	}
-	@media screen and (max-width: 975px) {
+	@media screen and (max-width: 1005px) {
 		span {
 			font-size: 14px !important;
 		}

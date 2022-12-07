@@ -22,6 +22,7 @@ const Container = styled.div`
 	height: 25vh;
 	align-items: center;
 	p {
+		font-size: 20px;
 		border: solid 0.1rem black;
 		box-shadow: 0 0 10px;
 		border-radius: 5px;

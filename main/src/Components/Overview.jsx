@@ -14,7 +14,7 @@ const Container = styled.div`
 	animation: fadeIn 0.5s;
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
+	gap: 3.5rem;
 	align-items: center;
 	width: 60%;
 	height: 87vh;
@@ -35,6 +35,31 @@ const Container = styled.div`
 		}
 		to {
 			opacity: 1;
+		}
+	}
+
+	@media screen and (max-width: 1050px) {
+		height: 83vh;
+		h1 {
+			font-size: 26px;
+		}
+		.o-card {
+			height: 70%;
+			width: 70%;
+		}
+	}
+	@media screen and (max-width: 640px) {
+		height: 78vh;
+		h1 {
+			font-size: 18px;
+		}
+		.o-card {
+			width: 100%;
+		}
+	}
+	@media screen and (max-width: 460px) {
+		h1 {
+			font-size: 14px;
 		}
 	}
 `;

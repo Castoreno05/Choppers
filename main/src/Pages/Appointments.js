@@ -210,9 +210,10 @@ const TheContainer = styled.div`
 		}
 	}
 	.date-wrapper {
+        width: 22%;
 		padding: 0.2rem;
 		position: fixed;
-		left: 70%;
+		left: 68.5%;
 		top: 53%;
 	}
 	.shopping-cart {
@@ -221,7 +222,7 @@ const TheContainer = styled.div`
 		align-items: center;
 		position: fixed;
 		left: 67.5%;
-		top: 20%;
+		top: 16%;
 		width: 25%;
 		gap: 0.8rem;
 		h1 {
@@ -242,6 +243,7 @@ const TheContainer = styled.div`
 				text-align: center;
 			}
 			.confirm-date, .confirm-time {
+                animation: fadeIn 0.5s;
 				display: flex;
 				justify-content: center;
 				padding: 0.3rem;

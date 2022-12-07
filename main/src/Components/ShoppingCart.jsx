@@ -56,20 +56,26 @@ const Container = styled.div`
 		justify-content: space-between;
 		span {
 			display: flex;
-			margin-right: 0 !important;
+			font-size: 20px;
 		}
 		p {
-			font-size: 18px;
+			font-size: 20px;
 			max-width: 100%;
 		}
 	}
 
 	@media screen and (max-width: 1175px) {
+		span {
+			font-size: 18px !important;
+		}
 		p {
-			font-size: 18px;
+			font-size: 18px !important;
 		}
 	}
-	@media screen and (max-width: 865px) {
+	@media screen and (max-width: 975px) {
+		span {
+			font-size: 14px !important;
+		}
 		p {
 			font-size: 14px !important;
 		}

@@ -11,14 +11,15 @@ export default function Overview() {
 }
 
 const Container = styled.div`
+	animation: fadeIn 0.5s;
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
 	align-items: center;
 	width: 60%;
-	height: 85vh;
+	height: 87vh;
 	h1 {
-		padding: .5rem;
+		padding: 0.5rem;
 		border-bottom: solid 0.1rem black;
 	}
 	.o-card {
@@ -27,5 +28,13 @@ const Container = styled.div`
 		border-radius: 5px;
 		height: 80%;
 		width: 50%;
+	}
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
 	}
 `;

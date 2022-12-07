@@ -8,8 +8,8 @@ export default function Calendar(props) {
 			{props.dates.map((data, index) => {
 				return (
 					<div
-						className="c-card"
 						key={index}
+						className="c-card"
 						onClick={(e) =>
 							props.setDateSelected(`${data}`) & props.setConfirmDate(true)
 						}
@@ -23,12 +23,13 @@ export default function Calendar(props) {
 }
 
 const Container = styled.div`
-	display: grid;
-	grid-template-columns: 33.3% 33.3% 33.3%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: .5rem;
 	animation: fadeIn 0.3s;
-	justify-content: start;
-	gap: 1.5rem;
 	.c-card {
+		width: 50px;
 		cursor: pointer;
 		p {
 			border: solid 0.1rem black;
@@ -41,6 +42,7 @@ const Container = styled.div`
 			color: whitesmoke;
 		}
 	}
+
 	@keyframes fadeIn {
 		from {
 			opacity: 0;
@@ -49,7 +51,14 @@ const Container = styled.div`
 			opacity: 1;
 		}
 	}
-	@media screen and (max-width: 965px) {
-		gap: 0.5rem;
+	@media screen and (max-width: 1050px) {
+		.c-card {
+			width: 100px;
+		}
+	}
+	@media screen and (max-width: 975px) {
+		.c-card {
+			width: 200px;
+		}
 	}
 `;

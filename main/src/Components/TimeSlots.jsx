@@ -16,6 +16,7 @@ export default function TimeSlots(props) {
 }
 
 const Container = styled.div`
+	animation: fadeIn 0.5s;
 	display: flex;
 	justify-content: center;
 	height: 25vh;
@@ -34,6 +35,14 @@ const Container = styled.div`
 		cursor: pointer;
 		background-color: black;
 		color: #fff;
+	}
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
 	}
 	@media screen and (max-width: 1175px) {
 		p {

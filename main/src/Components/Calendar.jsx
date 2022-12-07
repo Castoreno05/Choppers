@@ -29,7 +29,7 @@ const Container = styled.div`
 	gap: .5rem;
 	animation: fadeIn 0.3s;
 	.c-card {
-		width: 50px;
+		width: 100px;
 		cursor: pointer;
 		p {
 			border: solid 0.1rem black;

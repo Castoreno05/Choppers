@@ -43,7 +43,7 @@ function Appointments() {
 	}, []);
 
 	/******************DATES FOR CALENDAR***********************/
-	const next10Days = [...Array(12).keys()].map((index) => {
+	const next10Days = [...Array(10).keys()].map((index) => {
 		const date = new Date();
 		date.setDate(date.getDate() + index);
 		return format(date, "MMM do, EEE");
@@ -240,11 +240,11 @@ const TheContainer = styled.div`
 		}
 	}
 	.date-wrapper {
-		width: 22%;
+		width: 25%;
 		padding: 0.2rem;
 		position: fixed;
-		left: 69%;
-		top: 50.5%;
+		left: 67.5%;
+		top: 53%;
 	}
 	.shopping-cart {
 		display: flex;
@@ -316,6 +316,9 @@ const TheContainer = styled.div`
 		}
 	}
 	@media screen and (max-width: 975px) {
+		.date-wrapper {
+			top: 49%;
+		}
 		.shopping-container {
 			.service-wrapper {
 				grid-template-columns: 33.3% 33.3% 33.3%;

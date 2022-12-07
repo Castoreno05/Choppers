@@ -39,7 +39,7 @@ function Appointments() {
 		setLoading(true);
 		setTimeout(() => {
 			setLoading(false);
-		}, 500);
+		}, 1000);
 	}, []);
 
 	/******************DATES FOR CALENDAR***********************/
@@ -243,8 +243,8 @@ const TheContainer = styled.div`
 		width: 22%;
 		padding: 0.2rem;
 		position: fixed;
-		left: 68.5%;
-		top: 51%;
+		left: 69%;
+		top: 50.5%;
 	}
 	.shopping-cart {
 		display: flex;
@@ -268,7 +268,7 @@ const TheContainer = styled.div`
 			box-shadow: 0 0 12px #ba0d16;
 			border-radius: 5px;
 			h2 {
-				font-size: 18px;
+				font-size: 20px;
 				padding: 0.2rem;
 				text-align: center;
 			}
@@ -279,7 +279,7 @@ const TheContainer = styled.div`
 				justify-content: center;
 				padding: 0.3rem;
 				button {
-					padding: 0.2rem;
+					padding: 0.1rem;
 					cursor: pointer;
 					background-color: whitesmoke;
 					border: solid 0.1rem black;

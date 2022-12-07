@@ -19,7 +19,7 @@ const Container = styled.div`
 	animation: fadeIn 0.5s;
 	display: flex;
 	justify-content: center;
-	height: 25vh;
+	height: 28vh;
 	align-items: center;
 	p {
 		font-size: 20px;

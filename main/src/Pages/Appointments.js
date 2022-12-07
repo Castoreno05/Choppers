@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Overview from "../Components/Overview";
 import Professional from "../Components/Professional";
 import Service from "../Components/Service";
@@ -12,6 +12,7 @@ import { format } from "date-fns";
 import styled from "styled-components";
 
 function Appointments() {
+	const [loading, setLoading] = useState(false);
 	const [title, setTitle] = useState("CHOOSE A PROFESSIONAL");
 	/*********************COMPONENT STATE***********************/
 	const [containerActive, setContainerActive] = useState(true);
@@ -34,6 +35,13 @@ function Appointments() {
 	const [timeSelected, setTimeSelected] = useState(undefined);
 	/***********************************************************/
 
+	useEffect(() => {
+		setLoading(true);
+		setTimeout(() => {
+			setLoading(false);
+		}, 500);
+	}, []);
+
 	/******************DATES FOR CALENDAR***********************/
 	const next10Days = [...Array(12).keys()].map((index) => {
 		const date = new Date();
@@ -42,6 +50,7 @@ function Appointments() {
 	});
 	/***********************************************************/
 
+	/********************BTNS FOR CART*************************/
 	const timeSlots = () => {
 		setServiceActive(undefined);
 		setCalendarActive(undefined);
@@ -56,120 +65,135 @@ function Appointments() {
 		setOverviewActive(true);
 		setTitle("APPOINTMENT OVERVIEW");
 	};
-
+	/***********************************************************/
 	return (
 		<Container>
 			{" "}
-			{/* <h1> {title}</h1> */}
-			<TheContainer>
-				{" "}
-				{overviewActive && (
-					<div className="overview-container">
-						<Overview />
-					</div>
-				)}
-				{containerActive && (
-					<div className="shopping-container">
-						{" "}
-						{proActive && (
-							<div className="professional-wrapper">
-								{" "}
-								{EmployeeData.map((data) => {
-									return (
-										<Professional
-											setProActive={setProActive}
-											key={data.id}
-											proName={data.name}
-											// proID={data.eNumber}
-											proImage={data.img}
-											setTitle={setTitle}
-											setEmployeeName={setEmployeeName}
-											// setEmployeeID={setEmployeeID}
-											setServiceActive={setServiceActive}
-										/>
-									);
-								})}{" "}
-							</div>
-						)}
-						{serviceActive && (
-							<div className="service-wrapper">
-								{" "}
-								{ServiceData.map((data) => {
-									return (
-										<Service
-											setServiceActive={setServiceActive}
-											key={data.id}
-											serviceName={data.service}
-											serviceTime={data.time}
-											servicePrice={data.price}
-											setTitle={setTitle}
-											setServiceName={setServiceName}
-											setServiceTime={setServiceTime}
-											setServicePrice={setServicePrice}
-											setCalendarActive={setCalendarActive}
-										/>
-									);
-								})}{" "}
-							</div>
-						)}
-						{timeSlotsActive && (
-							<div className="time-wrapper">
-								{" "}
-								{DaySlots.map((days, index) => {
-									return (
-										<TimeSlots
-											key={index}
-											DaySlots={days}
-											setTimeSelected={setTimeSelected}
-											setContainerActive={setContainerActive}
-											setTimeSlotsActive={setTimeSlotsActive}
-											setShoppingActive={setShoppingActive}
-											setOverviewActive={setOverviewActive}
-											setConfirmTime={setConfirmTime}
-											setTitle={setTitle}
-										/>
-									);
-								})}{" "}
-							</div>
-						)}{" "}
-					</div>
-				)}
-				{calendarActive && (
-					<div className="date-wrapper">
-						<Calendar
-							setDateSelected={setDateSelected}
-							dates={next10Days}
-							setConfirmDate={setConfirmDate}
-						/>
-					</div>
-				)}
-				{shoppingActive && (
-					<div className="shopping-cart">
-						<h1>{title}</h1>
-						<div className="shopping-wrapper">
-							<h2>Your Order</h2>
-							<ShoppingCart
-								employeeName={employeeName}
-								serviceName={serviceName}
-								serviceTime={serviceTime}
-								servicePrice={servicePrice}
-								dateSelected={dateSelected}
-								timeSelected={timeSelected}
-							/>{" "}
-							{confirmDate && (
-								<div className="confirm-date">
-									<button onClick={timeSlots}>Confirm Date Selected</button>
-								</div>
-							)}{" "}
-							{confirmTime && (
-								<div className="confirm-time">
-									<button onClick={overview}>Confirm Time Selected</button>
+			{loading ? (
+				<div className="loading">Choppin'...</div>
+			) : (
+				<TheContainer>
+					{" "}
+					{overviewActive && (
+						<div className="overview-container">
+							<Overview
+								setEmployeeName={setEmployeeName}
+								setServiceName={setServiceName}
+								setServiceTime={setServiceTime}
+								setServicePrice={setServicePrice}
+								setDateSelected={setDateSelected}
+								setTimeSelected={setTimeSelected}
+								setConfirmTime={setConfirmTime}
+								setOverviewActive={setOverviewActive}
+								setContainerActive={setContainerActive}
+								setShoppingActive={setShoppingActive}
+								setProActive={setProActive}
+							/>
+						</div>
+					)}
+					{containerActive && (
+						<div className="shopping-container">
+							{" "}
+							{proActive && (
+								<div className="professional-wrapper">
+									{" "}
+									{EmployeeData.map((data) => {
+										return (
+											<Professional
+												setProActive={setProActive}
+												key={data.id}
+												proName={data.name}
+												// proID={data.eNumber}
+												proImage={data.img}
+												setTitle={setTitle}
+												setEmployeeName={setEmployeeName}
+												// setEmployeeID={setEmployeeID}
+												setServiceActive={setServiceActive}
+											/>
+										);
+									})}{" "}
 								</div>
 							)}
+							{serviceActive && (
+								<div className="service-wrapper">
+									{" "}
+									{ServiceData.map((data) => {
+										return (
+											<Service
+												setServiceActive={setServiceActive}
+												key={data.id}
+												serviceName={data.service}
+												serviceTime={data.time}
+												servicePrice={data.price}
+												setTitle={setTitle}
+												setServiceName={setServiceName}
+												setServiceTime={setServiceTime}
+												setServicePrice={setServicePrice}
+												setCalendarActive={setCalendarActive}
+											/>
+										);
+									})}{" "}
+								</div>
+							)}
+							{timeSlotsActive && (
+								<div className="time-wrapper">
+									{" "}
+									{DaySlots.map((days, index) => {
+										return (
+											<TimeSlots
+												key={index}
+												DaySlots={days}
+												setTimeSelected={setTimeSelected}
+												setContainerActive={setContainerActive}
+												setTimeSlotsActive={setTimeSlotsActive}
+												setShoppingActive={setShoppingActive}
+												setOverviewActive={setOverviewActive}
+												setConfirmTime={setConfirmTime}
+												setTitle={setTitle}
+											/>
+										);
+									})}{" "}
+								</div>
+							)}{" "}
 						</div>
-					</div>
-				)}{" "}
-			</TheContainer>
+					)}
+					{calendarActive && (
+						<div className="date-wrapper">
+							<Calendar
+								setDateSelected={setDateSelected}
+								dates={next10Days}
+								setConfirmDate={setConfirmDate}
+							/>
+						</div>
+					)}
+					{shoppingActive && (
+						<div className="shopping-cart">
+							<h1>{title}</h1>
+							<div className="shopping-wrapper">
+								<h2>Your Order</h2>
+								<ShoppingCart
+									employeeName={employeeName}
+									serviceName={serviceName}
+									serviceTime={serviceTime}
+									servicePrice={servicePrice}
+									dateSelected={dateSelected}
+									timeSelected={timeSelected}
+								/>{" "}
+								{confirmDate && (
+									<div className="confirm-date">
+										<button onClick={timeSlots}>Confirm Date Selected</button>
+									</div>
+								)}{" "}
+								{confirmTime && (
+									<div className="confirm-time">
+										<button onClick={overview}>Confirm Time Selected</button>
+									</div>
+								)}
+							</div>
+						</div>
+					)}{" "}
+				</TheContainer>
+			)}
 		</Container>
 	);
 }
@@ -180,6 +204,12 @@ const Container = styled.div`
 	align-items: center;
 	padding: 1rem;
 	gap: 1rem;
+	.loading {
+		font-size: 36px;
+		display: flex;
+		align-items: center;
+		height: 90vh;
+	}
 	@media screen and (max-width: 745px) {
 		gap: 1rem;
 		align-items: normal !important;
@@ -210,7 +240,7 @@ const TheContainer = styled.div`
 		}
 	}
 	.date-wrapper {
-        width: 22%;
+		width: 22%;
 		padding: 0.2rem;
 		position: fixed;
 		left: 68.5%;
@@ -242,8 +272,9 @@ const TheContainer = styled.div`
 				padding: 0.2rem;
 				text-align: center;
 			}
-			.confirm-date, .confirm-time {
-                animation: fadeIn 0.5s;
+			.confirm-date,
+			.confirm-time {
+				animation: fadeIn 0.5s;
 				display: flex;
 				justify-content: center;
 				padding: 0.3rem;

@@ -1,11 +1,37 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Overview() {
+export default function Overview(props) {
+	const handleReset = (e) => {
+		e.preventDefault();
+		props.setEmployeeName(undefined);
+		props.setServiceName(undefined);
+		props.setServiceTime(undefined);
+		props.setServicePrice(undefined);
+		props.setDateSelected(undefined);
+		props.setTimeSelected(undefined);
+		props.setConfirmTime(false);
+		props.setOverviewActive(false);
+		props.setContainerActive(true);
+		props.setShoppingActive(true);
+		props.setProActive(true);
+	};
+
 	return (
 		<Container>
 			<h1>APPOINTMENT OVERVIEW</h1>
-			<div className="o-card">Content</div>
+			<div className="o-card">
+				<div className="card-header"></div>
+				<div className="card-body"></div>
+				<div className="card-footer">
+					<div className="reserve">
+						<button>Book Now</button>
+					</div>
+					<div className="reset">
+						<button onClick={handleReset}>Reset</button>
+					</div>
+				</div>
+			</div>
 		</Container>
 	);
 }
@@ -23,11 +49,22 @@ const Container = styled.div`
 		border-bottom: solid 0.1rem black;
 	}
 	.o-card {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 		border: solid 0.1rem #ba0d16;
 		box-shadow: 0 0 20px #ba0d16;
 		border-radius: 5px;
 		height: 80%;
 		width: 50%;
+		.card-footer {
+			display: flex;
+			justify-content: space-between;
+			.reserve,
+			.reset {
+				padding: 1rem;
+			}
+		}
 	}
 	@keyframes fadeIn {
 		from {

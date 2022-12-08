@@ -14,7 +14,18 @@ export default function Overview(props) {
 				<div className="card-header">
 					<h3>*Please review order</h3>
 				</div>
-				<div className="card-body"></div>
+				<div className="card-body">
+					<div className="description">
+						<p>
+							Has alia omnium fierent eu. Dicant antiopam concludaturque vis ut,
+							no vel libris gubergren. Saperet definiebas eloquentiam sit id,
+							probo quando disputationi pro in.
+						</p>
+					</div>
+					<div className="total">
+						<p>Total: </p>
+					</div>
+				</div>
 				<div className="card-footer">
 					<div className="reserve">
 						<button>Book Appointment</button>
@@ -49,6 +60,23 @@ const Container = styled.div`
 		border-radius: 5px;
 		height: 80%;
 		width: 50%;
+		.card-body {
+			display: flex;
+			flex-direction: column;
+			.description {
+				padding: 1rem;
+				p {
+					text-align: center;
+					font-size: 20px;
+				}
+			}
+			.total {
+				padding: 1rem;
+				p {
+					font-size: 24px;
+				}
+			}
+		}
 		.card-footer {
 			display: flex;
 			justify-content: center;

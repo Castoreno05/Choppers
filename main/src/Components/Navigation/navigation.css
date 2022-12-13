@@ -42,6 +42,7 @@
   color: whitesmoke;
 }
 .close:hover {
+	cursor: pointer;
 	border-radius: 4px;
 	background-color: #000100;
 }
@@ -54,13 +55,13 @@
 	position: fixed;
 	top: 0;
 	left: -100%;
-	transition: 850ms;
+	transition: 2s;
 	z-index: 1;
 }
 
 .chop-menu.active {
 	left: 0;
-	transition: 450ms;
+	transition: 550ms;
 }
 
 .nav-text {
